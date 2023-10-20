@@ -14,23 +14,23 @@ function AnimeCard({ anime, addToWatchlist, removeFromWatchlist, watchlist }) {
       <div className="px-6 py-4 flex-grow">
         <h3 className="text-xl font-semibold text-gray-800">{anime.title}</h3>
       </div>
-      <div className="px-6 py-4 flex space-x-2">
-        <Link to={`/anime/${anime.mal_id}`} className="text-gray-800 hover:text-black">
+      <div className="px-6 py-4 flex space-x-5 items-center">
+        <Link to={`/anime/${anime.mal_id}`} className="text-gray-800 w-1/2 hover:text-black text-center">
           More Info
         </Link>
         {isOnWatchlist ? (
           <button
             onClick={() => removeFromWatchlist(anime)}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full"
+            className="bg-red-500 hover:bg-red-600 w-1/2 text-white font-bold px-2 py-2 rounded-full"
           >
             Remove
           </button>
         ) : (
           <button
             onClick={() => addToWatchlist(anime)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full"
+            className="bg-blue-500 hover:bg-blue-600 w-1/2 text-white font-bold px-2 py-2 rounded-full "
           >
-            Add to Watchlist
+            Add list
           </button>
         )}
       </div>

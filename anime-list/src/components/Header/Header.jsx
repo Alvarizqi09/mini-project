@@ -7,7 +7,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import logo from '../../assets/about.png';
+import about from '../../assets/about.png';
 
 function Header() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -69,7 +69,7 @@ function Header() {
     <Navbar className="sticky top-0 bg-gray-950 z-10 h-max max-w-full rounded-none py-3 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <div className="flex w-24 h-8 ml-10 items-center justify-start">
-            <img src={logo} alt="eventify" />
+            <img src={about} alt="eventify" />
           </div>
           <div className="flex items-center justify-center ml-12 gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -85,7 +85,7 @@ function Header() {
             <Button
               variant="outlined"
               size="sm"
-              className="hidden lg:inline-block"
+              className="hidden lg:inline-block text-sky-500"
             >
               <span>Sign Up</span>
             </Button>
@@ -131,7 +131,10 @@ function Header() {
         <MobileNav open={openNav}>
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Buy Now</span>
+            <span>Login</span>
+          </Button>
+          <Button variant="outlined" size="sm" fullWidth className="mb-2">
+            <span>Sign Up</span>
           </Button>
         </MobileNav>
       </Navbar>

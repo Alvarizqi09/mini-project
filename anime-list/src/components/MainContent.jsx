@@ -91,7 +91,7 @@ function MainContent(props) {
       </div>
       {props.watchlist.length > 0 && (
         <div className="watchlist mt-8">
-          <h2>Watchlist</h2>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">Watch List</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
             {props.watchlist.map((anime) => (
               <AnimeCard

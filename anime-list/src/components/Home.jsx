@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import MainContent from "../components/MainContent";
 import Sidebar from "../components/Sidebar/Sidebar";
 import axios from "axios";
+import Footer from "../components/Footer/Footer";
 
 function Home() {
   const [animeList, setAnimeList] = useState([]);
@@ -94,6 +95,7 @@ function Home() {
           removeFromWatchlist={removeFromWatchlist}
         />
       </div>
+      <Footer/>
     </div>
   );
 }
