@@ -9,11 +9,12 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -73,12 +74,35 @@ function MainContent(props) {
           />
         </form>
       </div>
-      <div className="anime-list flex flex-wrap mt-8">
+      <div className="anime-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {props.animeList &&
           props.animeList.map((anime) => (
-            <AnimeCard anime={anime} key={anime.mal_id} />
-          ))}
+            <AnimeCard
+              anime={anime}
+              key={anime.mal_id}
+              addToWatchlist={props.addToWatchlist}
+              removeFromWatchlist={props.removeFromWatchlist}
+              watchlist={props.watchlist}
+            />
+          ))
+        }
       </div>
+      {props.watchlist.length > 0 && (
+        <div className="watchlist mt-8">
+          <h2>Watchlist</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+            {props.watchlist.map((anime) => (
+              <AnimeCard
+                anime={anime}
+                key={anime.mal_id}
+                addToWatchlist={props.addToWatchlist}
+                removeFromWatchlist={props.removeFromWatchlist}
+                watchlist={props.watchlist}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
@@ -89,6 +113,9 @@ MainContent.propTypes = {
   search: PropTypes.string.isRequired,
   setSearch: PropTypes.func.isRequired,
   animeList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  watchlist: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addToWatchlist: PropTypes.func.isRequired,
+  removeFromWatchlist: PropTypes.func.isRequired,
 };
 
 export default MainContent;

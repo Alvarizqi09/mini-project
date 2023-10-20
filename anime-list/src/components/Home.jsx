@@ -7,8 +7,9 @@ import axios from "axios";
 function Home() {
   const [animeList, setAnimeList] = useState([]);
   const [topAnime, setTopAnime] = useState([]);
-  const [popularAnime, setPopularAnime] = useState([]); 
+  const [popularAnime, setPopularAnime] = useState([]);
   const [search, setSearch] = useState("");
+  const [watchlist, setWatchlist] = useState([]);
 
   const getTopAnime = async () => {
     try {
@@ -53,6 +54,14 @@ function Home() {
     getFilteredAnime(value);
   };
 
+  const addToWatchlist = (anime) => {
+    setWatchlist([...watchlist, anime]);
+  };
+
+  const removeFromWatchlist = (anime) => {
+    setWatchlist(watchlist.filter((item) => item.mal_id !== anime.mal_id));
+  };
+
   const fetchAnime = async (query) => {
     try {
       const response = await axios.get(
@@ -80,6 +89,9 @@ function Home() {
           search={search}
           setSearch={setSearch}
           animeList={animeList}
+          watchlist={watchlist}
+          addToWatchlist={addToWatchlist}
+          removeFromWatchlist={removeFromWatchlist}
         />
       </div>
     </div>
