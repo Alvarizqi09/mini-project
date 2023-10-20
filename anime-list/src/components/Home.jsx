@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import MainContent from "../components/MainContent";
 import Sidebar from "../components/Sidebar/Sidebar";
 import axios from "axios";

@@ -6,6 +6,7 @@ import { Button, Menu, Fade } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -32,9 +33,9 @@ function MainContent(props) {
   return (
     <main>
       <div className="main-head flex justify-end items-center p-4">
-        <form className="search-box" onSubmit={props.handleSearch}>
+        <form className="search-box flex items-center space-x-4 bg-white rounded-lg px-4 py-2 shadow-lg" onSubmit={props.handleSearch}>
           <Button
-            className="bg-gray-800 text-white rounded-full p-4 focus:outline-none"
+            className="bg-gray-800 text-white p-2 rounded-full focus:outline-none"
             id="fade-button"
             aria-controls={open ? "fade-menu" : undefined}
             aria-haspopup="true"
@@ -42,7 +43,7 @@ function MainContent(props) {
             onClick={handleClick}
             variant="contained"
           >
-            Filter Anime
+            <FilterAltIcon className="h-6 w-6"/>
           </Button>
           <Menu
             id="fade-menu"
@@ -71,6 +72,7 @@ function MainContent(props) {
             required
             value={props.search}
             onChange={(e) => props.setSearch(e.target.value)}
+            className="py-2 px-3 w-full rounded-full border border-gray-300 focus:outline-none"
           />
         </form>
       </div>
