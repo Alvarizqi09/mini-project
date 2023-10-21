@@ -15,18 +15,20 @@ const LandingPage = () => {
           <div className="text-5xl font-semibold items-center justify-center">
             <TypeAnimation
                 sequence={[
+                    '',
+                    500,
                     'V',
-                    1000,
+                    500,
                     'V I',
-                    1000,
+                    500,
                     'V I L',
-                    1000,
+                    500,
                     'V I L U',
-                    1000,
+                    500,
                     'V I L U M',
-                    1000,
+                    500,
                     'V I L U M E',
-                    1000
+                    500
                 ]}
                 wrapper="span"
                 speed={50}
@@ -35,14 +37,14 @@ const LandingPage = () => {
                 repeat={Infinity}
             />
           </div>
-          <div className="mt-4 items-center justify-center">
-            <Link to="/listanime" className="p-3 w-[150px] rounded-full text-decoration-none text-white bg-sky-300 hover:bg-gray-800 hover:text-white">
+          <div className="mt-10 items-center justify-center">
+            <Link to="/listanime" className="p-3 w-[150px] rounded-full text-decoration-none text-black bg-gray-300 hover:bg-gray-800 hover:text-white">
               Lets GO!
             </Link>
           </div>
         </section>
       </header>
-      <section className="flex p-8 items-center bg-gray-100 mb-10 justify-center">
+      <section className="about flex p-8 items-center bg-gray-100 justify-center">
         <div className="w-1/2 pr-4 items-center justify-center">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
           <p className="text-gray-700">
