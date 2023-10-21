@@ -8,7 +8,8 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
 const Footer = () => {
   return (
-    <footer className="max-w-full bg-gray-900 p-8 mt-10 overflow-x-hidden">
+  <div className="max-w-full bg-gray-900 overflow-x-hidden border-0">
+    <footer className="max-w-full bg-gray-900 p-8">
       <div className="flex flex-row flex-wrap items-center justify-between bg-gray-900">
         <div className="flex w-48 h-12 items-center justify-start">
           <img src={about} alt="logo-ct" className="w-48 h-30" />
@@ -36,9 +37,10 @@ const Footer = () => {
       </div>
       <hr className="my-8 border-blue-gray-50" />
       <Typography color="blue-gray" className="text-center text-white font-normal">
-        &copy; 2023 Material Tailwind
+        &copy; 2023 Alvarizqi. Vilume All Rights Reserved
       </Typography>
     </footer>
+  </div>
   );
 }
 

@@ -38,16 +38,6 @@ function Header() {
         color="blue-gray"
         className="py-1.5 font-medium"
       >
-        <Link to="/watchlist" className={`flex items-center text-white ${location.pathname === '/watchlist' ? 'border-b-2' : ''}`}>
-          Watch List
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="py-1.5 font-medium"
-      >
         <Link to="/listanime" className={`flex items-center text-white ${location.pathname === '/listanime' ? 'border-b-2' : ''}`}>
           List Anime
         </Link>
@@ -56,7 +46,7 @@ function Header() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-medium"
+        className="py-1.5 font-medium"
       >
         <Link to="/customerservices" className={`flex items-center text-white ${location.pathname === '/customerservices' ? 'border-b-2' : ''}`}>
           Customer Services
@@ -66,7 +56,7 @@ function Header() {
   );
   
   return (
-    <Navbar className="sticky top-0 bg-gray-950 z-10 h-max max-w-full rounded-none py-3 px-4 lg:px-8 lg:py-4">
+    <Navbar className="sticky top-0 bg-gray-950 z-10 h-max max-w-full rounded-none py-3 px-4 lg:px-8 lg:py-4 border-0">
         <div className="flex items-center justify-between text-blue-gray-900">
           <div className="flex w-24 h-8 ml-10 items-center justify-start">
             <img src={about} alt="eventify" />

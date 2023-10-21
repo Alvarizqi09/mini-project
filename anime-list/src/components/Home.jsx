@@ -82,7 +82,7 @@ function Home() {
   return (
     <div className="App">
       <Header />
-      <div className="content-wrap flex">
+      <div className="content-wrap flex bg-gray-100">
         <Sidebar topAnime={topAnime} popularAnime={popularAnime} />
         <MainContent
           handleSearch={handleSearch}

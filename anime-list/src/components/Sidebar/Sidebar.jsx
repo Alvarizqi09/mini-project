@@ -6,7 +6,7 @@ function Sidebar({ topAnime }) {
     <div>
       <aside className="w-64 m-5">
       <nav>
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">Top Anime</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mt-10 mb-10">Top Anime</h3>
           <div>
             {topAnime &&
               topAnime.map((anime, index) => (

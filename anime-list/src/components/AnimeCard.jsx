@@ -5,7 +5,7 @@ function AnimeCard({ anime, addToWatchlist, removeFromWatchlist, watchlist }) {
   const isOnWatchlist = watchlist.some((item) => item.mal_id === anime.mal_id);
 
   return (
-    <article className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
+    <article className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 flex flex-col">
       <img
         src={anime.images.jpg.large_image_url}
         alt="Anime"
