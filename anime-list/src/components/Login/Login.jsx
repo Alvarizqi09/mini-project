@@ -1,9 +1,9 @@
-
-import { useState } from "react"
-import { database } from "./firebase";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
+import { useState } from "react";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import logo from '../../assets/logo.png';
+import {auth,provider,database} from "./firebase";
+import LandingPage from "../LandingPage/LandingPage";
 import "./Login.css"
 
 const Login = () => {
@@ -11,6 +11,13 @@ const Login = () => {
   const [login, setLogin] = useState(false);
 
   const history = useNavigate();
+  const [value,setValue] = useState('')
+    const handleClick =()=>{
+        signInWithPopup(auth,provider).then((data)=>{
+            setValue(data.user.email)
+            history("/");
+        })
+    }
 
   const handleSubmit = (e, type) => {
     e.preventDefault();
@@ -75,6 +82,11 @@ const Login = () => {
           {login ? "SignIn" : "SignUp"}
         </button>
       </form>
+      <div>
+        {value?<LandingPage/>:
+        <button  className="w-full bg-blue-500 text-white p-2 rounded-md" onClick={handleClick}>Signin With Google</button>
+        }
+    </div>
     </div>
   </div>
   )
