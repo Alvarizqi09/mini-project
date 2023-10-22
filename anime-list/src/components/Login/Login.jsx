@@ -4,6 +4,7 @@ import { database } from "./firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import logo from '../../assets/logo.png';
+import "./Login.css"
 
 const Login = () => {
 
@@ -37,7 +38,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 login-card">
     <div className="max-w-md w-full p-6 space-y-6 rounded-lg shadow-xl bg-white">
       <div className="flex gap-x-5">
         <div

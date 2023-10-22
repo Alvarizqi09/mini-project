@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import about from '../../assets/about.png';
 import Logout from "../Login/Logout";
+import OutMobile from "../Login/OutMobile";
 
 
 function Header() {
@@ -108,7 +109,7 @@ function Header() {
           </div>
         <MobileNav open={openNav}>
           {navList}
-          <Logout/>
+          <OutMobile/>
         </MobileNav>
       </Navbar>
   );

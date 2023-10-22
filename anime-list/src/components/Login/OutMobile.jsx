@@ -4,7 +4,7 @@ import { database } from "./firebase";
 import { useNavigate } from "react-router-dom"
 import { Button } from "@material-tailwind/react";
 
-const Logout = () => {
+const OutMobile = () => {
     const history = useNavigate()
 
     const handleClick = () =>{
@@ -15,16 +15,11 @@ const Logout = () => {
     }
   return (
     <div>
-        <Button
-              variant="gradient"
-              size="sm"
-              onClick={handleClick}
-              className="hidden lg:inline-block text-white"
-            >
-              <span>Sign Out</span>
-         </Button>
+        <Button onClick={handleClick} variant="gradient" size="sm" fullWidth className="mb-2">
+            <span>Sign Out</span>
+        </Button>
     </div>
   )
 }
 
-export default Logout
+export default OutMobile
