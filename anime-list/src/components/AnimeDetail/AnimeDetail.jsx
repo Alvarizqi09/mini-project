@@ -37,7 +37,7 @@ function AnimeDetail() {
   return (
     <div>
       <h1 className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4">
-        <NavLink to="/">
+        <NavLink to="/listanime">
           <Tooltip title="Back">
             <ArrowBackIosIcon className="back-button text-black" />
           </Tooltip>

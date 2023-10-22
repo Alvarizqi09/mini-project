@@ -4,10 +4,11 @@ import {
   Navbar,
   MobileNav,
   Typography,
-  Button,
   IconButton,
 } from "@material-tailwind/react";
 import about from '../../assets/about.png';
+import Logout from "../Login/Logout";
+
 
 function Header() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -65,20 +66,7 @@ function Header() {
             <div className="mr-4 hidden lg:block">{navList}</div>
           </div>
           <div className="flex items-center justify-end gap-4">
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block"
-            >
-              <span>Login</span>
-            </Button>
-            <Button
-              variant="outlined"
-              size="sm"
-              className="hidden lg:inline-block text-sky-500"
-            >
-              <span>Sign Up</span>
-            </Button>
+            <Logout/>
           </div>
             <IconButton
               variant="text"
@@ -120,12 +108,7 @@ function Header() {
           </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Login</span>
-          </Button>
-          <Button variant="outlined" size="sm" fullWidth className="mb-2">
-            <span>Sign Up</span>
-          </Button>
+          <Logout/>
         </MobileNav>
       </Navbar>
   );
