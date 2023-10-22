@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 function Sidebar({ topAnime }) {
   return (
     <div>
-      <aside className="w-64 m-5">
-      <nav>
+      <aside className="w-full sm:w-64 m-5">
+        <nav>
           <h3 className="text-2xl font-bold text-gray-800 mt-10 mb-10">Top Anime</h3>
           <div>
             {topAnime &&
               topAnime.map((anime, index) => (
-                <div className="flex items-center p-4 bg-white shadow-md rounded-lg mb-4"  key={anime.mal_id}>
+                <div className="flex items-center p-4 bg-white shadow-md rounded-lg mb-4" key={anime.mal_id}>
                   <span className="text-2xl text-gray-600">
                     {index + 1}
                   </span>
