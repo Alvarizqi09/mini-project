@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 login-card">
     <div className="max-w-md w-full p-6 space-y-6 rounded-lg shadow-xl bg-white">
-      <div className="flex gap-x-5">
+      <div className="flex mx-auto gap-x-5">
         <div
           className={login === false ? "activeColor" : "pointer"}
           onClick={() => setLogin(false)}
@@ -54,7 +54,7 @@ const Login = () => {
           SignIn
         </div>
       </div>
-      <img src={logo} alt="Logo" className="mx-auto h-12 w-auto" />
+      <img src={logo} alt="Logo" className="mx-auto h-20 w-20" />
       <h1 className="text-3xl font-extrabold text-gray-800 text-center">
         {login ? "SignIn" : "SignUp"}
       </h1>
