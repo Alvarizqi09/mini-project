@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import logo from '../../assets/logo.png';
 import {auth,provider,database} from "./firebase";
 import LandingPage from "../LandingPage/LandingPage";
+import google from '../../assets/google.png';
 import "./Login.css"
 
 const Login = () => {
@@ -84,7 +85,18 @@ const Login = () => {
       </form>
       <div>
         {value?<LandingPage/>:
-        <button  className="w-full bg-blue-500 text-white p-2 rounded-md" onClick={handleClick}>Signin With Google</button>
+        <button
+            className="w-full flex items-center justify-center border border-black p-2 rounded-lg"
+            type="button"
+            onClick={handleClick}
+          >
+            <img
+              src={google}
+              alt="Google Logo"
+              className="h-6 w-6 mx-3"
+            />
+            <span>Sign in With Google</span>
+          </button>
         }
     </div>
     </div>
