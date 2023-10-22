@@ -1,5 +1,3 @@
 .login-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Contoh gradient background */
-    border-radius: 0.5rem; /* Atur radius sudut agar card terlihat lebih baik */
-    padding: 1rem; /* Atur padding sesuai kebutuhan Anda */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }

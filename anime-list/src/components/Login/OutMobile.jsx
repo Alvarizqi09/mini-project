@@ -10,7 +10,7 @@ const OutMobile = () => {
     const handleClick = () =>{
         signOut(database).then(val=>{
             console.log(val,"val")
-            history('/login')
+            history('/')
         })
     }
   return (

@@ -16,7 +16,7 @@ const Login = () => {
     const handleClick =()=>{
         signInWithPopup(auth,provider).then((data)=>{
             setValue(data.user.email)
-            history("/");
+            history("/home");
         })
     }
 
@@ -28,7 +28,7 @@ const Login = () => {
       createUserWithEmailAndPassword(database, email, password)
         .then((data) => {
           console.log(data, "authData");
-          history("/");
+          history("/home");
         })
         .catch((err) => {
           alert(err.code);
@@ -38,7 +38,7 @@ const Login = () => {
       signInWithEmailAndPassword(database, email, password)
         .then((data) => {
           console.log(data, "authData");
-          history("/");
+          history("/home");
         })
         .catch((err) => {
           alert(err.code);
@@ -47,7 +47,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 login-card">
-    <div className="max-w-md w-full p-6 space-y-6 rounded-lg shadow-xl bg-white">
+    <div className="max-w-md w-full p-6 space-y-6 rounded-xl shadow-xl bg-white">
       <div className="flex mx-auto gap-x-5">
         <div
           className={login === false ? "activeColor" : "pointer"}

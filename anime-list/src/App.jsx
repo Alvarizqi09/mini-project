@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route path="/listanime" element={<Home />} />
         <Route path="/customerservices" element={<CustomerServices />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<LandingPage />} />
+        <Route path="/" element={<Login />} />
         <Route path="/anime/:category" element={<AnimeDetail />} />
       </Routes>
     </BrowserRouter>

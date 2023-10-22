@@ -30,7 +30,7 @@ function Header() {
         color="blue-gray"
         className="py-1.5 font-medium"
       >
-        <Link to="/" className={`flex items-center text-white ${location.pathname === '/' ? 'border-b-2' : ''}`}>
+        <Link to="/" className={`flex items-center text-white ${location.pathname === '/home' ? 'border-b-2' : ''}`}>
           Home
         </Link>
       </Typography>
