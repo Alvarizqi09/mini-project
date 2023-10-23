@@ -82,7 +82,7 @@ function AnimeDetail() {
         <div className="w-1/2">
           <img src={anime?.images?.jpg?.image_url} className="mx-auto" alt={anime?.title} />
         </div>
-        <div className="p-4">
+        <div className="p-4 grid grid-cols-1 gap-2">
           <div className="font-semibold text-gray-700">Rank: <span>{anime?.rank}</span></div>
           <div className="font-semibold text-gray-700">Popularity: <span>{anime?.popularity}</span></div>
           <div className="font-semibold text-gray-700">Score: <span>{anime?.score}</span></div>

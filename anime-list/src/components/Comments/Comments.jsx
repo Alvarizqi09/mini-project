@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
 
@@ -62,37 +62,49 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
   };
 
   return (
-    <div className="mt-4">
-      <h2 className="text-xl font-medium mb-2">Comments</h2>
-      <div className="mb-4">
-        <input
-          type="text"
+    <div className="mt-6">
+      <h2 className="text-xl font-semibold mb-4">Comments</h2>
+      <div className="space-y-4">
+        {comments.map((comment, index) => (
+          <div key={index} className="p-4 border rounded-lg bg-white shadow">
+            <div className="flex justify-between">
+              <span className="font-semibold text-gray-700">{comment.username}</span>
+              <span className="text-gray-500">{comment.timestamp}</span>
+            </div>
+            <p className="mt-2 text-gray-800">{comment.text}</p>
+            <div className="mt-2 space-x-4">
+              <button
+                onClick={() => handleEditComment(index, comment)}
+                className="text-blue-500 hover:underline"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDeleteComment(index)}
+                className="text-red-500 hover:underline"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6">
+        <textarea
+          className="w-full h-24 p-4 border rounded-lg"
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          className="border rounded w-full p-2"
-        />
-        <button onClick={handleAddComment} className="bg-blue-500 text-white ml-2 p-2 rounded-md">
-          Add Comment
-        </button>
-      </div>
-      {comments.map((comment, index) => (
-        <div key={index} className="mb-4 border p-3 rounded-lg">
-          <p className="text-lg font-semibold">{comment.username}</p>
-          <p>{comment.text}</p>
-          <div>
-            <button
-              onClick={() => handleEditComment(index, comment)}
-              className="text-blue-500 underline mr-2"
-            >
-              Edit
-            </button>
-            <button onClick={() => handleDeleteComment(index)} className="text-red-500 underline">
-              Delete
-            </button>
-          </div>
+        ></textarea>
+        <div className="mt-4">
+          <button
+            onClick={handleAddComment}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          >
+            Add Comment
+          </button>
         </div>
-      ))}
+      </div>
     </div>
   );
 };
