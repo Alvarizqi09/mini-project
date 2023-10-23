@@ -52,7 +52,7 @@ const CustomerServices = () => {
             onChange={(e) => setPrompt(e.target.value)}
           />
           <button
-            className="bg-blue-500 text-white rounded flex items-center justify-center py-2 px-4 hover:bg-blue-600 mx-auto" // Tambahkan mx-auto untuk memusatkan horizontal
+            className="bg-blue-500 text-white rounded flex items-center justify-center py-2 px-4 hover:bg-blue-600 mx-auto"
             onClick={handleClick}
           >
             {loading ? (

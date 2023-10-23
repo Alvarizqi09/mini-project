@@ -61,7 +61,6 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
     });
   };
 
-  // Function to format date and time to Indonesian time zone
   const formatIndonesianDateTime = (isoString) => {
     const options = { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
     return new Intl.DateTimeFormat('id-ID', options).format(new Date(isoString));

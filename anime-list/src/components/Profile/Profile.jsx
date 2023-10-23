@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
 import Logout from "../Login/Logout";
+import "./Profile.css"
 
 const Profile = () => {
     const [userData, setUserData] = useState({
@@ -48,7 +49,7 @@ const Profile = () => {
       };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className="bg-gray-100 min-h-screen p-6 Profile">
         <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
             <NavLink to="/listanime">
                 <Tooltip title="Back">
