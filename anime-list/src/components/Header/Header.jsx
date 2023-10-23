@@ -54,6 +54,16 @@ function Header() {
           Customer Services
         </Link>
       </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="py-1.5 font-medium"
+      >
+        <Link to="/watchlist" className={`flex items-center text-white ${location.pathname === '/watchlist' ? 'border-b-2' : ''}`}>
+          Watch List
+        </Link>
+      </Typography>
     </ul>
   );
   

@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import CustomerServices from "./components/CustomerServices/CustomerServices";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
+import Watchlist from "./components/WatchList/Watchlist";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<LandingPage />} />
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/anime/:category" element={<AnimeDetail />} />
       </Routes>
     </BrowserRouter>

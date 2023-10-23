@@ -7,6 +7,8 @@ import StarIcon from "@mui/icons-material/Star";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToWatchlist, removeFromWatchlist } from '../components/WatchList/reducers/watchlistSlice';
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -18,6 +20,17 @@ function MainContent(props) {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const watchlist = useSelector((state) => state.watchlist.watchlist);
+  const dispatch = useDispatch();
+
+  const handleAddToWatchlist = (anime) => {
+    dispatch(addToWatchlist(anime));
+  };
+
+  const handleRemoveFromWatchlist = (anime) => {
+    dispatch(removeFromWatchlist(anime));
   };
 
   const fetchFilter = (name) => {
@@ -82,29 +95,13 @@ function MainContent(props) {
             <AnimeCard
               anime={anime}
               key={anime.mal_id}
-              addToWatchlist={props.addToWatchlist}
-              removeFromWatchlist={props.removeFromWatchlist}
-              watchlist={props.watchlist}
+              addToWatchlist={handleAddToWatchlist}
+              removeFromWatchlist={handleRemoveFromWatchlist}
+              watchlist={watchlist}
             />
           ))
         }
       </div>
-      {props.watchlist.length > 0 && (
-        <div className="watchlist mt-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-4">Watch List</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
-            {props.watchlist.map((anime) => (
-              <AnimeCard
-                anime={anime}
-                key={anime.mal_id}
-                addToWatchlist={props.addToWatchlist}
-                removeFromWatchlist={props.removeFromWatchlist}
-                watchlist={props.watchlist}
-              />
-            ))}
-          </div>
-        </div>
-      )}
     </main>
   );
 }
