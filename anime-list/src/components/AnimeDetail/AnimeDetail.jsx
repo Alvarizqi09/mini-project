@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
+import Comments from "../Comments/Comments";
 
 function AnimeDetail() {
   const { category } = useParams();
@@ -118,6 +119,9 @@ function AnimeDetail() {
           </div>
         </div>
       )}
+      <div>
+        <Comments />
+      </div>
     </div>
   );
 }
