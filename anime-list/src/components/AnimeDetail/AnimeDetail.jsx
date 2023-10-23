@@ -1,4 +1,4 @@
-import { useEffect, useState,useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
@@ -64,11 +64,10 @@ function AnimeDetail() {
       fetchComments();
     }
   }, [category, fetchComments]);
-  
 
   return (
-    <div>
-      <h1 className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4">
+    <div className="p-4">
+      <h1 className="text-3xl font-medium mt-4 mb-4 ml-2 flex items-center gap-4">
         <NavLink to="/listanime">
           <Tooltip title="Back">
             <ArrowBackIosIcon className="back-button text-black" />
@@ -78,63 +77,31 @@ function AnimeDetail() {
       </h1>
       <div className="text-sm ml-2 mr-2">
         <div className="py-2">{anime?.synopsis}</div>
-        <div className="py-2">{anime?.background}</div>
       </div>
-      <div className="relative flex p-4 mt-10 mb-0 bg-white border border-blue-200">
+      <div className="relative flex p-4 mt-10 mb-0 bg-white border border-blue-200 rounded-lg">
         <div className="w-1/2">
-          <img src={anime?.images?.jpg?.image_url} alt="" />
+          <img src={anime?.images?.jpg?.image_url} className="mx-auto" alt={anime?.title} />
         </div>
-        <div className="p-2">
-          <div className="font-semibold">
-            <span className="text-gray-700">Rank: </span>
-            <span>{anime?.rank}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Popularity: </span>
-            <span>{anime?.popularity}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Score: </span>
-            <span>{anime?.score}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Members: </span>
-            <span>{anime?.members}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Source: </span>
-            <span>{anime?.source}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Duration: </span>
-            <span>{anime?.duration}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Status: </span>
-            <span>{anime?.status}</span>
-          </div>
-          <div className="font-semibold">
-            <span className="text-gray-700">Rating: </span>
-            <span>{anime?.rating}</span>
-          </div>
+        <div className="p-4">
+          <div className="font-semibold text-gray-700">Rank: <span>{anime?.rank}</span></div>
+          <div className="font-semibold text-gray-700">Popularity: <span>{anime?.popularity}</span></div>
+          <div className="font-semibold text-gray-700">Score: <span>{anime?.score}</span></div>
+          <div className="font-semibold text-gray-700">Members: <span>{anime?.members}</span></div>
+          <div className="font-semibold text-gray-700">Source: <span>{anime?.source}</span></div>
+          <div className="font-semibold text-gray-700">Duration: <span>{anime?.duration}</span></div>
+          <div className="font-semibold text-gray-700">Status: <span>{anime?.status}</span></div>
+          <div className="font-semibold text-gray-700">Rating: <span>{anime?.rating}</span></div>
         </div>
       </div>
       {characters?.length > 0 && (
-        <div className="p-2">
+        <div className="p-4">
           <h1 className="text-xl font-medium">Characters</h1>
           <div className="flex flex-wrap">
             {characters?.map((item) => (
-              <div
-                className="flex-shrink-0 w-1/10 max-w-10 p-2"
-                key={item.character.mal_id}
-              >
+              <div className="flex-shrink-0 w-1/4 max-w-10 p-4" key={item.character.mal_id}>
                 <span>{item.character.name}</span>
                 <div>
-                  <img
-                    className="w-40 h-52"
-                    src={item.character.images.jpg.image_url}
-                    alt=""
-                  />
+                  <img className="w-40 h-52" src={item.character.images.jpg.image_url} alt={item.character.name} />
                 </div>
               </div>
             ))}
@@ -142,14 +109,10 @@ function AnimeDetail() {
         </div>
       )}
       {anime?.trailer?.embed_url && (
-        <div className="p-2">
+        <div className="p-4">
           <h1 className="text-xl font-medium">Trailer</h1>
-          <div>
-            <iframe
-              title="Inline Frame Example"
-              className="w-full h-64"
-              src={anime?.trailer?.embed_url}
-            ></iframe>
+          <div className="w-full h-64">
+            <iframe title="Inline Frame Example" src={anime?.trailer?.embed_url} className="w-full h-full"></iframe>
           </div>
         </div>
       )}
