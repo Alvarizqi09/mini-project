@@ -28,7 +28,7 @@ const Profile = () => {
       const [isEditing, setIsEditing] = useState(false);
     
       useEffect(() => {
-
+        // Coba untuk mengambil data avatar dari localStorage
         const storedUserData = localStorage.getItem('userData');
         if (storedUserData) {
           setUserData(JSON.parse(storedUserData));
@@ -44,6 +44,7 @@ const Profile = () => {
       };
     
       const handleSave = () => {
+        // Simpan data avatar dan profil ke localStorage
         localStorage.setItem('userData', JSON.stringify(userData));
         setIsEditing(false);
       };

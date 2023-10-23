@@ -9,7 +9,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToWatchlist, removeFromWatchlist } from '../components/WatchList/reducers/watchlistSlice';
-import Loading from "./Loading/Loading";
+import LoadingCard from "./Loading/Loading";
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -92,7 +92,7 @@ function MainContent(props) {
       </div>
       <div className="anime-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {props.animeList.length === 0 ? (
-          <Loading />
+          <LoadingCard />
         ) : (
           props.animeList.map((anime) => (
             <AnimeCard
