@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
@@ -8,6 +8,7 @@ function AnimeDetail() {
   const { category } = useParams();
   const [anime, setAnime] = useState({});
   const [characters, setCharacters] = useState([]);
+  const [animeComments, setAnimeComments] = useState([]);
 
   const fetchAnime = async (category) => {
     const temp = await fetch(`https://api.jikan.moe/v4/anime/${category}`).then(
@@ -28,12 +29,42 @@ function AnimeDetail() {
     setCharacters(sortedData?.slice(0, 10));
   };
 
+  const fetchComments = useCallback(() => {
+    const storedComments = localStorage.getItem(`comments-${category}`);
+    if (storedComments) {
+      setAnimeComments(JSON.parse(storedComments));
+    }
+  }, [category]);
+
+  const addComment = (comment) => {
+    setAnimeComments((prevComments) => [...prevComments, comment]);
+    localStorage.setItem(
+      `comments-${category}`,
+      JSON.stringify([...animeComments, comment])
+    );
+  };
+
+  const editComment = (index, editedComment) => {
+    const updatedComments = [...animeComments];
+    updatedComments[index] = editedComment;
+    setAnimeComments(updatedComments);
+    localStorage.setItem(`comments-${category}`, JSON.stringify(updatedComments));
+  };
+
+  const deleteComment = (index) => {
+    const updatedComments = animeComments.filter((_, i) => i !== index);
+    setAnimeComments(updatedComments);
+    localStorage.setItem(`comments-${category}`, JSON.stringify(updatedComments));
+  };
+
   useEffect(() => {
     if (category) {
       fetchAnime(category);
       fetchCharacters(category);
+      fetchComments();
     }
-  }, [category]);
+  }, [category, fetchComments]);
+  
 
   return (
     <div>
@@ -93,7 +124,10 @@ function AnimeDetail() {
           <h1 className="text-xl font-medium">Characters</h1>
           <div className="flex flex-wrap">
             {characters?.map((item) => (
-              <div className="flex-shrink-0 w-1/10 max-w-10 p-2" key={item.character.mal_id}>
+              <div
+                className="flex-shrink-0 w-1/10 max-w-10 p-2"
+                key={item.character.mal_id}
+              >
                 <span>{item.character.name}</span>
                 <div>
                   <img
@@ -120,7 +154,12 @@ function AnimeDetail() {
         </div>
       )}
       <div>
-        <Comments />
+        <Comments
+          comments={animeComments}
+          onAddComment={addComment}
+          onEditComment={editComment}
+          onDeleteComment={deleteComment}
+        />
       </div>
     </div>
   );
