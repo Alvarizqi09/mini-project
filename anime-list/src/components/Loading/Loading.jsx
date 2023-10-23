@@ -8,7 +8,7 @@ function LoadingCard() {
         <Skeleton animation="wave" variant="circle" width={32} height={32} />
       </div>
       <div className="px-6 py-4 flex-grow">
-        <Skeleton animation="wave" width="100%" height={24} /> {/* Perbaiki sintaks width */}
+        <Skeleton animation="wave" width="100%" height={24} />
       </div>
       <div className="px-6 py-4 flex space-x-5 items-center">
         <div className="w-1/2">
