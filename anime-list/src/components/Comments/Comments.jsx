@@ -61,6 +61,12 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
     });
   };
 
+  // Function to format date and time to Indonesian time zone
+  const formatIndonesianDateTime = (isoString) => {
+    const options = { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    return new Intl.DateTimeFormat('id-ID', options).format(new Date(isoString));
+  };
+
   return (
     <div className="mt-6">
       <h2 className="text-xl font-semibold mb-4">Comments</h2>
@@ -69,7 +75,7 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
           <div key={index} className="p-4 border rounded-lg bg-white shadow">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-700">{comment.username}</span>
-              <span className="text-gray-500">{comment.timestamp}</span>
+              <span className="text-gray-500">{formatIndonesianDateTime(comment.timestamp)}</span>
             </div>
             <p className="mt-2 text-gray-800">{comment.text}</p>
             <div className="mt-2 space-x-4">
