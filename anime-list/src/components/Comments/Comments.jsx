@@ -67,26 +67,26 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
   };
 
   return (
-    <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4">Comments</h2>
-      <div className="space-y-4">
+    <div className="max-h-64 flex flex-col">
+      <h2 className="text-lg text-white font-semibold mb-2">Comments</h2>
+      <div className="space-y-2">
         {comments.map((comment, index) => (
-          <div key={index} className="p-4 border rounded-lg bg-white shadow">
+          <div key={index} className="p-2 border rounded-lg bg-white shadow">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-700">{comment.username}</span>
               <span className="text-gray-500">{formatIndonesianDateTime(comment.timestamp)}</span>
             </div>
-            <p className="mt-2 text-gray-800">{comment.text}</p>
-            <div className="mt-2 space-x-4">
+            <p className="mt-1 text-gray-800 text-sm">{comment.text}</p>
+            <div className="mt-1 space-x-2">
               <button
                 onClick={() => handleEditComment(index, comment)}
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline text-sm"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDeleteComment(index)}
-                className="text-red-500 hover:underline"
+                className="text-red-500 hover:underline text-sm"
               >
                 Delete
               </button>
@@ -94,17 +94,17 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
           </div>
         ))}
       </div>
-      <div className="mt-6">
+      <div className="mt-4">
         <textarea
-          className="w-full h-24 p-4 border rounded-lg"
+          className="w-full h-24 p-2 border rounded-lg" 
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         ></textarea>
-        <div className="mt-4">
+        <div className="mt-2">
           <button
             onClick={handleAddComment}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
           >
             Add Comment
           </button>
