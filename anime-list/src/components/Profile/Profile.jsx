@@ -1,63 +1,64 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
 import Logout from "../Login/Logout";
-import "./Profile.css"
+import defaultAvatar from '../../assets/avatar.jpeg'; 
+import "./Profile.css";
 
 const Profile = () => {
-    const [userData, setUserData] = useState({
-        avatar: '', 
-        fullName: '',
-        username: '',
-        birthdate: '',
-        gender: '',
-        city: '',
-      });
-    
-      const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          const imageUrl = URL.createObjectURL(file);
-          setUserData((prevData) => ({
-            ...prevData,
-            avatar: imageUrl,
-          }));
-        }
-      };
-    
-      const [isEditing, setIsEditing] = useState(false);
-    
-      useEffect(() => {
-        const storedUserData = localStorage.getItem('userData');
-        if (storedUserData) {
-          setUserData(JSON.parse(storedUserData));
-        }
-      }, []);
-    
-      const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setUserData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
-    
-      const handleSave = () => {
-        localStorage.setItem('userData', JSON.stringify(userData));
-        setIsEditing(false);
-      };
+  const [userData, setUserData] = useState({
+    avatar: defaultAvatar,
+    fullName: '',
+    username: '',
+    birthdate: '',
+    gender: '',
+    city: '',
+  });
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setUserData((prevData) => ({
+        ...prevData,
+        avatar: imageUrl,
+      }));
+    }
+  };
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    localStorage.setItem('userData', JSON.stringify(userData));
+    setIsEditing(false);
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen p-6 Profile">
-        <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
-            <NavLink to="/listanime">
-                <Tooltip title="Back">
-                    <ArrowBackIosIcon className="back-button text-black" />
-                </Tooltip>
-            </NavLink>
-            <h2 className="text-2xl font-semibold mb-4">Your Profile</h2>
-        </div>
+      <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
+        <NavLink to="/listanime">
+          <Tooltip title="Back">
+            <ArrowBackIosIcon className="back-button text-black" />
+          </Tooltip>
+        </NavLink>
+        <h2 className="text-2xl font-semibold mb-4">Your Profile</h2>
+      </div>
       <div className="max-w-md bg-gray-200 rounded-lg p-4 shadow-lg mx-auto">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Avatar:</label>
@@ -158,7 +159,7 @@ const Profile = () => {
           </button>
         )}
         <div>
-            <Logout/>
+          <Logout />
         </div>
       </div>
     </div>

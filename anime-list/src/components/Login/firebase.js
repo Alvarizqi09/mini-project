@@ -1,17 +1,17 @@
 import { initializeApp } from "firebase/app";
-import {getAuth,GoogleAuthProvider} from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC6rpygCySEUNSmjjCo9YYDm4LPHS8ZpbI",
-  authDomain: "vilumeanime.firebaseapp.com",
-  projectId: "vilumeanime",
-  storageBucket: "vilumeanime.appspot.com",
-  messagingSenderId: "487785993957",
-  appId: "1:487785993957:web:b9ed24bcb0f56d89c3a60c"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-export {auth,provider};
+export { auth, provider };
 export const database = getAuth(app);
