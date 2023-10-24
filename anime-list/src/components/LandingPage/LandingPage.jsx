@@ -53,11 +53,11 @@ const LandingPage = () => {
             Bergabunglah dengan komunitas kami dan temukan keindahan anime bersama Vilume.
           </p>
         </div>
-        <div className="w-1/2 ml-20">
+        <div className="w-1/2 ml-20 shadow-md">
           <img
           src={logo}
           alt="logo"
-          className="rounded-lg shadow-md"
+          className="rounded-lg mx-auto"
           />
         </div>
       </section>

@@ -66,8 +66,8 @@ function AnimeDetail() {
   }, [category, fetchComments]);
 
   return (
-    <div className="p-4 bg-gradient-to-r from-blue-900 to-purple-900 min-h-screen flex"> {/* Tambahkan flex */}
-    <div className="bg-gray-100 rounded-lg p-4 shadow-lg w-2/3 mr-4"> {/* Tambahkan w-2/3 dan mr-4 */}
+    <div className="p-4 bg-gradient-to-r from-blue-900 to-purple-900 min-h-screen flex">
+    <div className="bg-gray-100 rounded-lg p-4 shadow-lg w-2/3 mr-4">
       <h1 className="text-2xl font-medium mb-2">
         <NavLink to="/listanime">
           <Tooltip title="Back">
@@ -110,7 +110,7 @@ function AnimeDetail() {
         </div>
       )}
     </div>
-    <div className="w-1/3"> {/* Tambahkan w-1/3 */}
+    <div className="w-1/3">
       <Comments
         comments={animeComments}
         onAddComment={addComment}

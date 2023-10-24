@@ -19,11 +19,17 @@ const Profile = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setUserData((prevData) => ({
-        ...prevData,
-        avatar: imageUrl,
-      }));
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        const imageUrl = event.target.result;
+        setUserData((prevData) => ({
+          ...prevData,
+          avatar: imageUrl,
+        }));
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 
@@ -50,18 +56,18 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6 Profile">
+    <div className="min-h-screen p-6 Profile">
       <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
         <NavLink to="/listanime">
           <Tooltip title="Back">
-            <ArrowBackIosIcon className="back-button text-black" />
+            <ArrowBackIosIcon className="back-button text-white" />
           </Tooltip>
         </NavLink>
-        <h2 className="text-2xl font-semibold mb-4">Your Profile</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-white">Your Profile</h2>
       </div>
-      <div className="max-w-md bg-gray-200 rounded-lg p-4 shadow-lg mx-auto">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Avatar:</label>
+      <div className="max-w-md bg-white rounded-lg p-4 shadow-lg mx-auto text-center">
+      <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Avatar</label>
           {isEditing ? (
             <input
               type="file"
@@ -72,12 +78,12 @@ const Profile = () => {
             />
           ) : (
             <div className="mb-2">
-              <img src={userData.avatar} alt="Avatar" className="w-20 h-20 rounded-full" />
+              <img src={userData.avatar} alt="Avatar" className="w-20 h-20 mx-auto rounded-full" />
             </div>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
           {isEditing ? (
             <input
               type="text"
@@ -87,11 +93,11 @@ const Profile = () => {
               className="border rounded w-full p-2"
             />
           ) : (
-            <p className="text-lg font-semibold mb-2">{userData.fullName}</p>
+            <p className="text-lg   font-semibold mb-2">{userData.fullName}</p>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Username</label>
           {isEditing ? (
             <input
               type="text"
@@ -101,11 +107,11 @@ const Profile = () => {
               className="border rounded w-full p-2"
             />
           ) : (
-            <p className="text-lg font-semibold mb-2">@{userData.username}</p>
+            <p className="text-lg   font-semibold mb-2">@{userData.username}</p>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Birthdate:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Birthdate</label>
           {isEditing ? (
             <input
               type="date"
@@ -115,11 +121,11 @@ const Profile = () => {
               className="border rounded w-full p-2"
             />
           ) : (
-            <p className="text-lg font-semibold mb-2">{userData.birthdate}</p>
+            <p className="text-lg   font-semibold mb-2">{userData.birthdate}</p>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Gender</label>
           {isEditing ? (
             <select
               name="gender"
@@ -132,11 +138,11 @@ const Profile = () => {
               <option value="other">Other</option>
             </select>
           ) : (
-            <p className="text-lg font-semibold mb-2">{userData.gender}</p>
+            <p className="text-lg   font-semibold mb-2">{userData.gender}</p>
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">City:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">City</label>
           {isEditing ? (
             <input
               type="text"
@@ -146,15 +152,15 @@ const Profile = () => {
               className="border rounded w-full p-2"
             />
           ) : (
-            <p className="text-lg font-semibold mb-2">{userData.city}</p>
+            <p className="text-lg   font-semibold mb-2">{userData.city}</p>
           )}
         </div>
         {isEditing ? (
-          <button onClick={handleSave} className="bg-blue-500 text-white mb-4 p-2 rounded-md">
+          <button onClick={handleSave} className="bg-blue-500   text-white mb-4 p-2 rounded-md">
             Save
           </button>
         ) : (
-          <button onClick={() => setIsEditing(true)} className="bg-blue-500 mb-4 text-white p-2 rounded-md">
+          <button onClick={() => setIsEditing(true)} className="bg-blue-500   mb-4 text-white p-2 rounded-md">
             Edit Profile
           </button>
         )}
