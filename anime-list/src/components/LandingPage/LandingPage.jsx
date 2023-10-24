@@ -9,8 +9,8 @@ const LandingPage = () => {
 
   return (
     <div>
+      <Header />
       <header>
-        <Header />
         <section className="isi w-full h-screen flex flex-col items-center justify-center text-center font-semibold">
           <div className="text-5xl font-semibold items-center justify-center">
             <TypeAnimation
