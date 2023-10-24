@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup } from "firebase/auth"
-import { useNavigate } from "react-router-dom"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import logo from '../../assets/logo.png';
-import {auth,provider,database} from "./firebase";
+import { auth, provider, database } from "./firebase";
 import LandingPage from "../LandingPage/LandingPage";
 import google from '../../assets/google.png';
-import "./Login.css"
+import "./Login.css";
 
 const Login = () => {
 
@@ -31,7 +32,11 @@ const Login = () => {
           history("/home");
         })
         .catch((err) => {
-          alert(err.code);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.message,
+          });
           setLogin(true);
         });
     } else {
@@ -41,7 +46,11 @@ const Login = () => {
           history("/home");
         })
         .catch((err) => {
-          alert(err.code);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.message,
+          });
         });
     }
   };

@@ -10,6 +10,8 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToWatchlist, removeFromWatchlist } from '../components/WatchList/reducers/watchlistSlice';
 import LoadingCard from "./Loading/Loading";
+import Swal from 'sweetalert2';
+
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -28,10 +30,20 @@ function MainContent(props) {
 
   const handleAddToWatchlist = (anime) => {
     dispatch(addToWatchlist(anime));
+    Swal.fire({
+      icon: 'success',
+      title: 'Added to Watchlist',
+      text: `${anime.title} has been added to your watchlist.`,
+    });
   };
-
+  
   const handleRemoveFromWatchlist = (anime) => {
     dispatch(removeFromWatchlist(anime));
+    Swal.fire({
+      icon: 'success',
+      title: 'Removed from Watchlist',
+      text: `${anime.title} has been removed from your watchlist.`,
+    });
   };
 
   const fetchFilter = (name) => {

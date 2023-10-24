@@ -3,6 +3,7 @@ import { removeFromWatchlist } from './reducers/watchlistSlice';
 import AnimeCard from '/src/components/AnimeCard';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Swal from 'sweetalert2';
 
 function Watchlist() {
   const watchlist = useSelector((state) => state.watchlist.watchlist);
@@ -10,6 +11,11 @@ function Watchlist() {
 
   const handleRemoveFromWatchlist = (anime) => {
     dispatch(removeFromWatchlist(anime));
+    Swal.fire({
+      icon: 'success',
+      title: 'Removed from Watchlist',
+      text: `${anime.title} has been removed from your watchlist.`,
+    });
   };
 
   return (
