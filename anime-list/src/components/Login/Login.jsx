@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import logo from '../../assets/logo.png';
 import { auth, provider, database } from "./firebase";
-import LandingPage from "../LandingPage/LandingPage";
+import LandingPage from "../../LandingPage/LandingPage";
 import google from '../../assets/google.png';
 import "./Login.css";
 

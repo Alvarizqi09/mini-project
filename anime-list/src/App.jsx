@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import AnimeDetail from "./components/AnimeDetail/AnimeDetail";
-import LandingPage from "./components/LandingPage/LandingPage";
+import LandingPage from "./LandingPage/LandingPage";
 import CustomerServices from "./components/CustomerServices/CustomerServices";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";

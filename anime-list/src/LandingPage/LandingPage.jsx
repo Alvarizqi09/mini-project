@@ -1,8 +1,8 @@
-import Header from "../Header/Header";
+import Header from "../components/Header/Header";
 import "./LandingPage.css";
 import { TypeAnimation } from 'react-type-animation';
-import logo from '../../assets/logo.png';
-import Footer from "../Footer/Footer";
+import logo from '../assets/logo.png';
+import Footer from "../components/Footer/Footer";
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
