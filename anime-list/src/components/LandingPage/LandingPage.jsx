@@ -11,7 +11,7 @@ const LandingPage = () => {
     <div>
       <Header />
       <header>
-        <section className="isi w-full h-screen flex flex-col items-center justify-center text-center font-semibold">
+        <section className="w-full h-screen flex flex-col items-center justify-center text-center font-semibold">
           <div className="text-5xl font-semibold items-center justify-center">
             <TypeAnimation
                 sequence={[
