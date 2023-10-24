@@ -69,7 +69,7 @@ function MainContent(props) {
             onClick={handleClick}
             variant="contained"
           >
-            <FilterAltIcon className="h-6 w-6"/>
+            <FilterAltIcon className="h-6 w-6" />
           </Button>
           <Menu
             id="fade-menu"
