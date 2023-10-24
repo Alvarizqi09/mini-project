@@ -78,7 +78,6 @@ function Header() {
       </Typography>
     </ul>
   );
-
   return (
     <Navbar className="sticky top-0 bg-gray-950 z-10 h-max max-w-full rounded-none py-3 px-4 lg:px-8 lg:py-4 border-0">
       <div className="flex items-center justify-between text-blue-gray-900">
@@ -142,7 +141,7 @@ function Header() {
       <MobileNav open={openNav}>
         {navList}
           <Button fullWidth variant="gradient" size="sm" className="mb-5" onClick={() => navigate("/profile")}>
-              <span>my profile</span>
+              <span>My profile</span>
           </Button>
           <OutMobile/>
       </MobileNav>
