@@ -141,7 +141,10 @@ function Header() {
       </div>
       <MobileNav open={openNav}>
         {navList}
-        <OutMobile />
+          <Button fullWidth variant="gradient" size="sm" className="mb-5" onClick={() => navigate("/profile")}>
+              <span>my profile</span>
+          </Button>
+          <OutMobile/>
       </MobileNav>
     </Navbar>
   );
