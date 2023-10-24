@@ -6,9 +6,10 @@ import { faSpinner, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo.png';
 
 const CustomerServices = () => {
+  const openaiSecretKey = import.meta.env.VITE_OPENAI_KEY;
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: openaiSecretKey,
   });
 
   const openai = new OpenAIApi(configuration);
