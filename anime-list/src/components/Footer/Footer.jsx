@@ -5,8 +5,11 @@ import github from "/src/assets/github.png";
 import linkedin from "/src/assets/linkedin.png";
 import instagram from "/src/assets/instagram.png";
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gray-900">
       <footer className="container mx-auto py-8">
@@ -29,7 +32,10 @@ const Footer = () => {
             </a>
           </div>
           <div className="w-full lg:w-1/4 flex justify-center mt-4 lg:mt-0">
-            <button className="flex items-center bg-blue-500 hover-bg-blue-600 text-white font-bold rounded-full py-2 px-4 space-x-2">
+          <button
+              className="flex items-center bg-blue-500 hover-bg-blue-600 text-white font-bold rounded-full py-2 px-4 space-x-2"
+              onClick={() => navigate('/customerservices')}
+            >
               Customer Services
               <SupportAgentIcon className="h-5 w-5 ml-4" />
             </button>

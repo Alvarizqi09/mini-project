@@ -1,16 +1,27 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import logo from '../../assets/logo.png';
-import { database } from "./firebase";
+import { auth, provider, database } from "./firebase";
+import LandingPage from "../../LandingPage/LandingPage";
+import google from '../../assets/google.png';
 import "./Login.css";
+
 
 const Login = () => {
 
   const [login, setLogin] = useState(false);
 
   const history = useNavigate();
+
+  const [value,setValue] = useState('')
+    const handleClick =()=>{
+        signInWithPopup(auth,provider).then((data)=>{
+            setValue(data.user.email)
+            history("/home");
+        })
+    }
 
   const handleSubmit = (e, type) => {
     e.preventDefault();
@@ -83,6 +94,22 @@ const Login = () => {
           {login ? "SignIn" : "SignUp"}
         </button>
       </form>
+       <div>
+        {value?<LandingPage/>:
+          <button
+              className="w-full flex items-center justify-center border border-black p-2 rounded-lg"
+              type="button"
+              onClick={handleClick}
+            >
+              <img
+                src={google}
+                alt="Google Logo"
+                className="h-6 w-6 mx-3"
+              />
+              <span>Sign in With Google</span>
+            </button>
+          }
+      </div>
     </div>
   </div>
   )
