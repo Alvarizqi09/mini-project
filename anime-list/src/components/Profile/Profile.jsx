@@ -55,6 +55,22 @@ const Profile = () => {
     setIsEditing(false);
   };
 
+  const handleDelete = () => {
+    // Hapus data profil dari localStorage
+    localStorage.removeItem('userData');
+    // Reset state ke nilai awal
+    setUserData({
+      avatar: defaultAvatar,
+      fullName: '',
+      username: '',
+      birthdate: '',
+      gender: '',
+      city: '',
+    });
+    // Menandai bahwa Anda tidak sedang mengedit
+    setIsEditing(false);
+  };
+
   return (
     <div className="min-h-screen p-6 Profile">
       <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
@@ -156,15 +172,18 @@ const Profile = () => {
           )}
         </div>
         {isEditing ? (
-          <button onClick={handleSave} className="bg-blue-500   text-white mb-4 p-2 rounded-md">
+          <button onClick={handleSave} className="bg-blue-500 text-white mb-4 p-2 rounded-md">
             Save
           </button>
         ) : (
-          <button onClick={() => setIsEditing(true)} className="bg-blue-500   mb-4 text-white p-2 rounded-md">
+          <button onClick={() => setIsEditing(true)} className="bg-blue-500 mb-4 text-white p-2 rounded-md">
             Edit Profile
           </button>
         )}
         <div>
+          <button onClick={handleDelete} className="bg-red-500 text-white mb-4 p-2 rounded-md">
+            Delete Profile
+          </button>
           <Logout />
         </div>
       </div>
