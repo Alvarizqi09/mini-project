@@ -6,21 +6,28 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
   const [newComment, setNewComment] = useState('');
 
   const handleAddComment = () => {
+    const storedUserData = localStorage.getItem('userData');
+    
+    if (!storedUserData) {
+      Swal.fire('Please fill out your profile information before adding a comment.', '', 'warning');
+      return;
+    }
+    
     if (newComment) {
-      const username = JSON.parse(localStorage.getItem('userData')).username;
+      const username = JSON.parse(storedUserData).username;
       const comment = { username, text: newComment, timestamp: new Date().toISOString() };
-
+  
       onAddComment(comment);
-
+  
       setNewComment('');
-
+  
       localStorage.setItem('comments', JSON.stringify([...comments, comment]));
-
+  
       Swal.fire('Comment Added!', '', 'success');
     } else {
       Swal.fire('Please enter a comment.', '', 'error');
     }
-  };
+  };  
 
   const handleEditComment = (index, editedComment) => {
     Swal.fire({
