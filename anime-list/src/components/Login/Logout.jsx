@@ -6,6 +6,7 @@ const Logout = () => {
   const history = useNavigate();
 
   const handleGoogleLogout = () => {
+    localStorage.removeItem('userData');
     googleLogout();
     history('/');
   };

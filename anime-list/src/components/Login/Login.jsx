@@ -5,14 +5,23 @@ import Swal from 'sweetalert2';
 import logo from '../../assets/logo.png';
 import { database } from "./firebase";
 import "./Login.css";
-import { GoogleLogin } from '@react-oauth/google';
-import jwt_decode from "jwt-decode";
+import { useGoogleOneTapLogin } from '@react-oauth/google';
 
 const Login = () => {
 
   const [login, setLogin] = useState(false);
 
   const history = useNavigate();
+
+  useGoogleOneTapLogin({
+    onSuccess: credentialResponse => {
+      console.log(credentialResponse);
+      history("/home")
+    },
+    onError: () => {
+      console.log('Login Failed');
+    },
+  });
 
   const handleSubmit = (e, type) => {
     e.preventDefault();
@@ -85,19 +94,6 @@ const Login = () => {
           {login ? "SignIn" : "SignUp"}
         </button>
       </form>
-      <div className="text-center flex">
-        <GoogleLogin
-          onSuccess={credentialResponse => {
-            var decoded = jwt_decode(credentialResponse.credential);
-            console.log(decoded);
-            history("/home");
-          }}
-          onError={() => {
-            console.log('Login Failed');
-          }}
-          useOneTap
-        />
-      </div>
     </div>
   </div>
   )
