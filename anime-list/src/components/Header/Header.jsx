@@ -91,13 +91,10 @@ function Header() {
           <Button
             variant="gradient"
             size="sm"
+            onClick={() => navigate("/profile")}
             className="hidden lg:inline-block text-white"
           >
-            <button
-              onClick={() => navigate("/profile")}
-            >
               My Profile
-            </button>
           </Button>
         </div>
         <IconButton
