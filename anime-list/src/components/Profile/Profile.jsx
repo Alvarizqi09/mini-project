@@ -56,9 +56,7 @@ const Profile = () => {
   };
 
   const handleDelete = () => {
-    // Hapus data profil dari localStorage
     localStorage.removeItem('userData');
-    // Reset state ke nilai awal
     setUserData({
       avatar: defaultAvatar,
       fullName: '',
@@ -67,7 +65,6 @@ const Profile = () => {
       gender: '',
       city: '',
     });
-    // Menandai bahwa Anda tidak sedang mengedit
     setIsEditing(false);
   };
 
