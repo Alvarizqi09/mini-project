@@ -8,7 +8,6 @@ import LandingPage from "../../LandingPage/LandingPage";
 import google from '../../assets/google.png';
 import "./Login.css";
 
-
 const Login = () => {
 
   const [login, setLogin] = useState(false);
