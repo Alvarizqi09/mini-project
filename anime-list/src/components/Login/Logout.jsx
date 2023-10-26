@@ -16,6 +16,7 @@ const Logout = () => {
         variant="gradient"
         size="sm"
         onClick={handleGoogleLogout}
+        fullWidth
         className="hidden lg:inline-block text-white"
       >
         <span>Sign Out</span>

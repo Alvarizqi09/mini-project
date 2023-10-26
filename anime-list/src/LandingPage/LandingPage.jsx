@@ -44,20 +44,18 @@ const LandingPage = () => {
           </div>
         </section>
       </header>
-      <section className="about flex p-8 items-center bg-gray-200 justify-center">
-        <div className="w-1/2 pr-4 items-center justify-center">
+      <section className="about flex flex-col sm:flex-row p-8 items-center bg-gray-200 justify-center">
+        <div className="w-full sm:w-1/2 pr-4 items-center justify-center mb-4 sm:mb-0">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
-          <p className="text-gray-700">
-                Selamat datang di Vilume, rumah bagi para pencinta anime! Kami adalah pusat anime yang menghadirkan hiburan berkualitas tinggi bagi penggemar anime dari segala usia. Dengan koleksi anime yang beragam dan ulasan terbaru, kami siap memenuhi kecintaan Anda terhadap dunia anime.
-            Di Vilume, kami berkomitmen untuk mempersembahkan pengalaman terbaik bagi Anda. Temukan anime favorit Anda, jelajahi judul-judul baru, dan nikmati konten berinformasi yang kami sajikan. Bersama-sama, kita akan mengejar petualangan anime yang tak terlupakan!
-            Bergabunglah dengan komunitas kami dan temukan keindahan anime bersama Vilume.
+          <p className="text-gray-700 text-justify">
+            Selamat datang di Vilume, rumah bagi para pencinta anime! Kami adalah pusat anime yang menghadirkan hiburan berkualitas tinggi bagi penggemar anime dari segala usia. Dengan koleksi anime yang beragam dan ulasan terbaru, kami siap memenuhi kecintaan Anda terhadap dunia anime. Di Vilume, kami berkomitmen untuk mempersembahkan pengalaman terbaik bagi Anda. Temukan anime favorit Anda, jelajahi judul-judul baru, dan nikmati konten berinformasi yang kami sajikan. Bersama-sama, kita akan mengejar petualangan anime yang tak terlupakan! Bergabunglah dengan komunitas kami dan temukan keindahan anime bersama Vilume.
           </p>
         </div>
-        <div className="w-1/2 ml-20 shadow-md">
+        <div className="w-full sm:w-1/2 shadow-md mt-8 sm:mt-0">
           <img
-          src={logo}
-          alt="logo"
-          className="rounded-lg mx-auto"
+            src={logo}
+            alt="logo"
+            className="rounded-lg mx-auto"
           />
         </div>
       </section>

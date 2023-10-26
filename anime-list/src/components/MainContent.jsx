@@ -19,7 +19,7 @@ function MainContent(props) {
 
   useEffect(() => {
     if (props.animeList.length > 0) {
-      setLoading(false); 
+      setLoading(false);
     }
   }, [props.animeList]);
 
@@ -70,61 +70,61 @@ function MainContent(props) {
 
   return (
     <main>
-      <div className="main-head items-center p-4">
+      <div className="main-head p-4">
         {loading ? (
           <LoadingCard />
         ) : (
           <>
-          <div className="flex items-center justify-between">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-6 sm:mt-10 mb-5 sm:mb-10 text-center">
-              {title}
-            </h3>
-            <form
-              className="search-box flex items-center space-x-4 bg-white rounded-lg px-4 py-2 shadow-lg"
-              onSubmit={props.handleSearch}
-            >
-              <Button
-                className="bg-gray-800 text-white p-2 rounded-full focus:outline-none"
-                id="fade-button"
-                aria-controls={open ? "fade-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                variant="contained"
+            <div className="flex items-center justify-between flex-wrap">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-6 sm:mt-10 mb-5 sm:mb-10 text-center w-full sm:w-auto">
+                {title}
+              </h3>
+              <form
+                className="search-box flex items-center space-x-4 bg-white rounded-lg px-4 py-2 shadow-lg"
+                onSubmit={props.handleSearch}
               >
-                <FilterAltIcon className="h-6 w-6" />
-              </Button>
-              <Menu
-                id="fade-menu"
-                MenuListProps={{
-                  "aria-labelledby": "fade-button",
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Fade}
-              >
-                {filters.map((filter) => {
-                  return (
-                    <Filter
-                      fetchFilter={fetchFilter}
-                      filter={filter}
-                      handleClose={handleClose}
-                      key={filter.name}
-                    />
-                  );
-                })}
-              </Menu>
-              <input
-                type="search"
-                placeholder="Search for an anime"
-                required
-                value={props.search}
-                onChange={(e) => props.setSearch(e.target.value)}
-                className="py-2 px-3 w-full rounded-full border border-gray-300 focus:outline-none"
-              />
-            </form>
-          </div>
+                <Button
+                  className="bg-gray-800 text-white p-2 rounded-full focus:outline-none"
+                  id="fade-button"
+                  aria-controls={open ? "fade-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  variant="contained"
+                >
+                  <FilterAltIcon className="h-6 w-6" />
+                </Button>
+                <Menu
+                  id="fade-menu"
+                  MenuListProps={{
+                    "aria-labelledby": "fade-button",
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  TransitionComponent={Fade}
+                >
+                  {filters.map((filter) => {
+                    return (
+                      <Filter
+                        fetchFilter={fetchFilter}
+                        filter={filter}
+                        handleClose={handleClose}
+                        key={filter.name}
+                      />
+                    );
+                  })}
+                </Menu>
+                <input
+                  type="search"
+                  placeholder="Search for an anime"
+                  required
+                  value={props.search}
+                  onChange={(e) => props.setSearch(e.target.value)}
+                  className="py-2 px-3 w-full rounded-full border border-gray-300 focus:outline-none"
+                />
+              </form>
+            </div>
             <div className="anime-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
               {props.animeList.length === 0 ? (
                 <LoadingCard />

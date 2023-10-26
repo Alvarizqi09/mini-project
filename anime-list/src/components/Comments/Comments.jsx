@@ -74,26 +74,26 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
   };
 
   return (
-    <div className="max-h-64 flex flex-col">
+    <div className="max-h-64 flex flex-col p-4">
       <h2 className="text-lg text-white font-semibold mb-2">Comments</h2>
       <div className="space-y-2">
         {comments.map((comment, index) => (
-          <div key={index} className="p-2 border rounded-lg bg-white shadow">
+          <div key={index} className="p-2 border rounded-lg bg-white shadow text-gray-800">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-700">{comment.username}</span>
-              <span className="text-gray-500">{formatIndonesianDateTime(comment.timestamp)}</span>
+              <span className="text-sm sm:text-base lg:text-lg text-gray-500">{formatIndonesianDateTime(comment.timestamp)}</span>
             </div>
-            <p className="mt-1 text-gray-800 text-sm">{comment.text}</p>
+            <p className="mt-1 text-sm sm:text-base lg:text-lg">{comment.text}</p>
             <div className="mt-1 space-x-2">
               <button
                 onClick={() => handleEditComment(index, comment)}
-                className="text-blue-500 hover:underline text-sm"
+                className="text-blue-500 hover:underline text-sm sm:text-base lg:text-lg"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDeleteComment(index)}
-                className="text-red-500 hover:underline text-sm"
+                className="text-red-500 hover:underline text-sm sm:text-base lg:text-lg"
               >
                 Delete
               </button>
@@ -103,7 +103,7 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
       </div>
       <div className="mt-4">
         <textarea
-          className="w-full h-24 p-2 border rounded-lg" 
+          className="w-full p-2 border rounded-lg bg-white" 
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
@@ -111,7 +111,7 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
         <div className="mt-2">
           <button
             onClick={handleAddComment}
-            className="px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            className="w-full px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
           >
             Add Comment
           </button>

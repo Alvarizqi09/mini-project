@@ -5,6 +5,7 @@ import { Tooltip } from "@mui/material";
 import Logout from "../Login/Logout";
 import defaultAvatar from '../../assets/avatar.jpeg'; 
 import "./Profile.css";
+import OutMobile from '../Login/OutMobile';
 
 const Profile = () => {
   const [userData, setUserData] = useState({
@@ -55,6 +56,8 @@ const Profile = () => {
     setIsEditing(false);
   };
 
+  const isMobile = window.innerWidth <= 960;
+
   const handleDelete = () => {
     localStorage.removeItem('userData');
     setUserData({
@@ -80,21 +83,22 @@ const Profile = () => {
       </div>
       <div className="max-w-md bg-white rounded-lg p-4 shadow-lg mx-auto text-center">
         <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Avatar</label>
-            {isEditing ? (
-              <input
-                type="file"
-                name="avatar"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="border rounded w-full p-2"
-              />
-            ) : (
-              <div className="mb-2">
-                <img src={userData.avatar} alt="Avatar" className="w-20 h-20 mx-auto rounded-full" />
-              </div>
-            )}
-          </div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Avatar</label>
+          {isEditing ? (
+            <input
+              type="file"
+              name="avatar"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="border rounded w-full p-2"
+            />
+          ) : (
+            <div className="mb-2">
+              <img src={userData.avatar} alt="Avatar" className="w-20 h-20 mx-auto rounded-full" />
+            </div>
+          )}
+        </div>
+        <div className="profile-info">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
             {isEditing ? (
@@ -151,7 +155,7 @@ const Profile = () => {
                 <option value="other">Other</option>
               </select>
             ) : (
-              <p className="text-lg   font-semibold mb-2">{userData.gender}</p>
+              <p className="text-lg font-semibold mb-2">{userData.gender}</p>
             )}
           </div>
           <div className="mb-4">
@@ -165,24 +169,37 @@ const Profile = () => {
                 className="border rounded w-full p-2"
               />
             ) : (
-              <p className="text-lg   font-semibold mb-2">{userData.city}</p>
+              <p className="text-lg font-semibold mb-2">{userData.city}</p>
             )}
           </div>
-          {isEditing ? (
-            <button onClick={handleSave} className="bg-blue-500 text-white mb-4 p-2 rounded-md">
-              Save
-            </button>
-          ) : (
-            <button onClick={() => setIsEditing(true)} className="bg-blue-500 mb-4 text-white p-2 rounded-md">
+        </div>
+        {isEditing ? (
+          <button onClick={handleSave} className="bg-blue-500 text-white mb-4 p-2 rounded-md">
+            Save
+          </button>
+        ) : (
+          <>
+            <button onClick={() => setIsEditing(true)} className="bg-blue-500 mb-4 w-full text-white p-2 rounded-md">
               Edit Profile
             </button>
-          )}
-          <div>
-            <button onClick={handleDelete} className="bg-red-500 text-white mb-4 p-2 rounded-md">
-              Delete Profile
-            </button>
-            <Logout />
-          </div>
+            {isMobile ? (
+              <div>
+                <button onClick={handleDelete} className="bg-red-500 text-white mb-4 w-full p-2 rounded-md">
+                  Delete Profile
+                </button>
+                <OutMobile />
+              </div>
+            ) : (
+              <div>
+                <button onClick={handleDelete} className="bg-red-500 w-full text-white mb-4 p-2 rounded-md">
+                  Delete Profile
+                </button>
+                <Logout />
+              </div>
+            )}
+            
+          </>
+        )}
       </div>
     </div>
   );

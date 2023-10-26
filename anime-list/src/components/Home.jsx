@@ -86,7 +86,7 @@ function Home() {
   return (
     <div className="App">
       <Header />
-      <div className="content-wrap flex bg-gray-300">
+      <div className="flex gap-x-5 bg-gray-300">
         <Sidebar topAnime={topAnime} popularAnime={popularAnime} />
         <MainContent
           handleSearch={handleSearch}
@@ -98,6 +98,7 @@ function Home() {
           addToWatchlist={addToWatchlist}
           removeFromWatchlist={removeFromWatchlist}
           activeFilter={activeFilter}
+          className="ml-5 sm:ml-5"
         />
       </div>
       <Footer/>
