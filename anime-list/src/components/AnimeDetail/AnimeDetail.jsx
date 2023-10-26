@@ -66,7 +66,7 @@ function AnimeDetail() {
   }, [category, fetchComments]);
 
   return (
-    <div className="p-4 bg-gradient-to-r from-blue-900 to-purple-900 min-h-screen flex flex-row lg:flex-row">
+    <div className="p-4 bg-gradient-to-r from-blue-900 to-purple-900 min-h-screen flex flex-col lg:flex-row">
       <div className="bg-gray-100 rounded-lg p-4 shadow-lg lg:w-2/3 lg:mr-4">
         <h1 className="text-2xl font-medium mb-2">
           <NavLink to="/listanime">
@@ -79,11 +79,11 @@ function AnimeDetail() {
         <div className="text-sm">
           <div className="py-2">{anime?.synopsis}</div>
         </div>
-        <div className="relative flex p-4 mt-4 bg-gray-200 border border-blue-200 rounded-lg">
-          <div className="w-1/2">
+        <div className="relative flex flex-col lg:flex-row p-4 mt-4 bg-gray-200 border border-blue-200 rounded-lg">
+          <div className="lg:w-1/2">
             <img src={anime?.images?.jpg?.image_url} className="mx-auto" alt={anime?.title} />
           </div>
-          <div className="p-4 grid grid-cols-1 gap-2">
+          <div className="p-4 grid grid-cols-1 gap-2 lg:w-1/2">
             <div className="font-semibold text-gray-700">Rank: <span>{anime?.rank}</span></div>
             <div className="font-semibold text-gray-700">Popularity: <span>{anime?.popularity}</span></div>
             <div className="font-semibold text-gray-700">Score: <span>{anime?.score}</span></div>
@@ -99,7 +99,7 @@ function AnimeDetail() {
             <h1 className="text-lg font-semibold mb-2">Characters</h1>
             <div className="flex flex-wrap">
               {characters?.map((item) => (
-                <div className="flex-shrink-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/4 p-2" key={item.character.mal_id}>
+                <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 p-2" key={item.character.mal_id}>
                   <span>{item.character.name}</span>
                   <div>
                     <img className="w-full max-w-xs h-auto mx-auto" src={item.character.images.jpg.image_url} alt={item.character.name} />
