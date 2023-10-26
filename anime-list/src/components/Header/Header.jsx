@@ -99,7 +99,7 @@ function Header() {
         </div>
         <IconButton
           variant="outlined"
-          className="ml-auto h-6 w-6 bg-white hover:bg-white focus:bg-white active-bg-white lg:hidden"
+          className="ml-auto h-6 w-6 bg-white text-center hover:bg-white focus:bg-white active-bg-white lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -136,7 +136,60 @@ function Header() {
         </IconButton>
       </div>
       <MobileNav open={openNav}>
-        {navList}
+        <ul className="flex flex-col gap-2 text-center">
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="py-1.5 mx-auto font-medium"
+            >
+              <button
+                className={`flex items-center text-white ${location.pathname === '/home' ? 'border-b-2' : ''}`}
+                onClick={() => navigate("/home")}
+              >
+                Home
+              </button>
+            </Typography>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="py-1.5 mx-auto font-medium"
+            >
+              <button
+                className={`flex items-center text-white ${location.pathname === '/listanime' ? 'border-b-2' : ''}`}
+                onClick={() => navigate("/listanime")}
+              >
+                List Anime
+              </button>
+            </Typography>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="py-1.5 mx-auto font-medium"
+            >
+              <button
+                className={`flex items-center text-white ${location.pathname === '/customerservices' ? 'border-b-2' : ''}`}
+                onClick={() => navigate("/customerservices")}
+              >
+                Customer Services
+              </button>
+            </Typography>
+            <Typography
+              as="li"
+              variant="small"
+              color="blue-gray"
+              className="py-1.5 mx-auto font-medium"
+            >
+              <button
+                className={`flex items-center text-white ${location.pathname === '/watchlist' ? 'border-b-2' : ''}`}
+                onClick={() => navigate("/watchlist")}
+              >
+                Watch List
+              </button>
+            </Typography>
+          </ul>
           <Button fullWidth variant="gradient" size="sm" className="mb-5" onClick={() => navigate("/profile")}>
               <span>My profile</span>
           </Button>
