@@ -1,5 +1,4 @@
 import { BiLoaderCircle } from 'react-icons/bi'; 
-import PropTypes from 'prop-types';
 
 function LoadingCard() {
   return (
@@ -8,11 +7,5 @@ function LoadingCard() {
     </div>
   );
 }
-
-LoadingCard.propTypes = {
-  anime: PropTypes.shape({
-    mal_id: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
 export default LoadingCard;
