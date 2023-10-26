@@ -75,7 +75,7 @@ function MainContent(props) {
           <LoadingCard />
         ) : (
           <>
-            <div className="flex items-center justify-between flex-wrap">
+          <div className="sm:flex items-center justify-between flex-wrap">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-6 sm:mt-10 mb-5 sm:mb-10 text-center w-full sm:w-auto">
                 {title}
               </h3>

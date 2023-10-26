@@ -37,10 +37,10 @@ const CustomerServices = () => {
   };
 
   return (
-    <div className="bg-gray-300 min-h-screen flex flex-col justify-center">
+    <div className="bg-gray-300 min-h-screen flex flex-col">
       <Header />
       <div className="container mx-auto px-4 flex mt-10 items-center justify-center min-h-screen">
-        <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div className="max-w-lg w-full sm:w-96 mx-auto bg-white p-6 rounded-lg shadow-lg">
           <div className="text-center mb-4">
             <img src={logo} alt="Vilume" className="w-16 h-16 mx-auto mb-2" />
             <h1 className="text-2xl font-semibold mb-4">Sok tanya atuh</h1>
@@ -52,7 +52,7 @@ const CustomerServices = () => {
             onChange={(e) => setPrompt(e.target.value)}
           />
           <button
-            className="bg-blue-500 text-white rounded flex items-center justify-center py-2 px-4 hover:bg-blue-600 mx-auto"
+            className="bg-blue-500 gap-x-5 text-white rounded flex items-center justify-center py-2 px-4 hover:bg-blue-600 w-full"
             onClick={handleClick}
           >
             {loading ? (

@@ -16,6 +16,9 @@ module.exports = withMT({
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        sm: "960px",
+      },
       colors: {
         sky: {
           50: "#f0f9ff",
