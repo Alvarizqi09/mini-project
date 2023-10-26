@@ -74,7 +74,7 @@ const Comments = ({ comments, onAddComment, onEditComment, onDeleteComment }) =>
   };
 
   return (
-    <div className="max-h-64 flex flex-col p-4">
+    <div className="max-h-screen flex flex-col p-4 ">
       <h2 className="text-lg text-white font-semibold mb-2">Comments</h2>
       <div className="space-y-2">
         {comments.map((comment, index) => (
