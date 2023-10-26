@@ -56,11 +56,17 @@ const CustomerServices = () => {
             onClick={handleClick}
           >
             {loading ? (
-              <FontAwesomeIcon icon={faSpinner} spin />
+              <>
+                <FontAwesomeIcon icon={faSpinner} spin />
+                Sabar yo...
+              </>
             ) : (
-              <FontAwesomeIcon icon={faPlayCircle} />
+              <>
+                <FontAwesomeIcon icon={faPlayCircle} />
+                Sok nanya
+              </>
+              
             )}
-            Start Chat
           </button>
           {showResult && (
             <div className="mt-4">
