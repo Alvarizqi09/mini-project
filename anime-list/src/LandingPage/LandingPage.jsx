@@ -6,35 +6,34 @@ import Footer from "../components/Footer/Footer";
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
-
   return (
     <div>
       <Header />
       <header>
         <section className="w-full h-screen flex flex-col items-center justify-center text-center font-semibold">
-          <div className="text-5xl font-semibold items-center justify-center">
+          <div className="text-4xl sm:text-5xl font-semibold items-center justify-center">
             <TypeAnimation
-                sequence={[
-                    '',
-                    500,
-                    'V',
-                    500,
-                    'V I',
-                    500,
-                    'V I L',
-                    500,
-                    'V I L U',
-                    500,
-                    'V I L U M',
-                    500,
-                    'V I L U M E',
-                    500
-                ]}
-                wrapper="span"
-                speed={50}
-                style={{ fontSize: '2em', display: 'inline-block' }}
-                className="text-white"
-                repeat={Infinity}
+              sequence={[
+                '',
+                500,
+                'V',
+                500,
+                'V I',
+                500,
+                'V I L',
+                500,
+                'V I L U',
+                500,
+                'V I L U M',
+                500,
+                'V I L U M E',
+                500
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ display: 'inline-block' }}
+              className="text-white"
+              repeat={Infinity}
             />
           </div>
           <div className="mt-10 items-center justify-center">
@@ -59,7 +58,7 @@ const LandingPage = () => {
           />
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
