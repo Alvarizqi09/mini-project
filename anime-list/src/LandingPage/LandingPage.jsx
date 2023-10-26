@@ -44,7 +44,7 @@ const LandingPage = () => {
           </div>
         </section>
       </header>
-      <section className="about flex p-8 items-center bg-gray-100 justify-center">
+      <section className="about flex p-8 items-center bg-gray-200 justify-center">
         <div className="w-1/2 pr-4 items-center justify-center">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
           <p className="text-gray-700">

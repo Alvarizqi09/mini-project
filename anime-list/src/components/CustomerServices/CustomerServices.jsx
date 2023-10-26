@@ -37,7 +37,7 @@ const CustomerServices = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center">
+    <div className="bg-gray-300 min-h-screen flex flex-col justify-center">
       <Header />
       <div className="container mx-auto px-4 flex mt-10 items-center justify-center min-h-screen">
         <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">

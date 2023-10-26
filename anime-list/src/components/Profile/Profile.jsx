@@ -106,7 +106,7 @@ const Profile = () => {
                 className="border rounded w-full p-2"
               />
             ) : (
-              <p className="text-lg   font-semibold mb-2">{userData.fullName}</p>
+              <p className="text-lg font-semibold mb-2">{userData.fullName}</p>
             )}
           </div>
           <div className="mb-4">

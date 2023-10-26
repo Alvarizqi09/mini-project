@@ -19,7 +19,7 @@ function Watchlist() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col">
+    <div className="bg-gray-300 min-h-screen flex flex-col">
       <Header />
       <div className="container mx-auto p-8 flex-grow">
         <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Watch List</h3>

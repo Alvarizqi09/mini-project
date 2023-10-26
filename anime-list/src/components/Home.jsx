@@ -11,6 +11,7 @@ function Home() {
   const [popularAnime, setPopularAnime] = useState([]);
   const [search, setSearch] = useState("");
   const [watchlist, setWatchlist] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("All Anime");
 
   const getTopAnime = async () => {
     try {
@@ -19,6 +20,7 @@ function Home() {
       );
       setTopAnime(response.data.data?.slice(0, 5));
       setAnimeList(response.data.data);
+      setActiveFilter("List Anime"); 
     } catch (error) {
       console.error("Error fetching top anime:", error);
     }
@@ -30,6 +32,7 @@ function Home() {
         `https://api.jikan.moe/v4/top/anime?filter=bypopularity`
       );
       setPopularAnime(response.data.data?.slice(0, 5));
+      setActiveFilter("Popular Anime"); 
     } catch (error) {
       console.error("Error fetching popular anime:", error);
     }
@@ -41,6 +44,7 @@ function Home() {
         `https://api.jikan.moe/v4/top/anime?filter=${value}`
       );
       setAnimeList(response.data.data);
+      setActiveFilter(value + " Anime");
     } catch (error) {
       console.error("Error fetching filtered anime:", error);
     }
@@ -82,7 +86,7 @@ function Home() {
   return (
     <div className="App">
       <Header />
-      <div className="content-wrap flex bg-gray-100">
+      <div className="content-wrap flex bg-gray-300">
         <Sidebar topAnime={topAnime} popularAnime={popularAnime} />
         <MainContent
           handleSearch={handleSearch}
@@ -93,6 +97,7 @@ function Home() {
           watchlist={watchlist}
           addToWatchlist={addToWatchlist}
           removeFromWatchlist={removeFromWatchlist}
+          activeFilter={activeFilter}
         />
       </div>
       <Footer/>

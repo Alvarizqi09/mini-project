@@ -99,7 +99,7 @@ function Header() {
         </div>
         <IconButton
           variant="outlined"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-white focus:bg-white active-bg-white lg:hidden"
+          className="ml-auto h-6 w-6 text-center bg-white hover:bg-white focus:bg-white active-bg-white lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
