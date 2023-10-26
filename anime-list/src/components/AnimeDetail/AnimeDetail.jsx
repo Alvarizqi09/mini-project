@@ -5,13 +5,13 @@ import { Tooltip } from "@mui/material";
 import Comments from "../Comments/Comments";
 
 function AnimeDetail() {
-  const { category } = useParams();
+  const { id } = useParams();
   const [anime, setAnime] = useState({});
   const [characters, setCharacters] = useState([]);
   const [animeComments, setAnimeComments] = useState([]);
 
-  const fetchAnime = async (category) => {
-    const temp = await fetch(`https://api.jikan.moe/v4/anime/${category}`).then(
+  const fetchAnime = async (id) => {
+    const temp = await fetch(`https://api.jikan.moe/v4/anime/${id}`).then(
       (res) => res.json()
     );
 
@@ -30,16 +30,16 @@ function AnimeDetail() {
   };
 
   const fetchComments = useCallback(() => {
-    const storedComments = localStorage.getItem(`comments-${category}`);
+    const storedComments = localStorage.getItem(`comments-${id}`);
     if (storedComments) {
       setAnimeComments(JSON.parse(storedComments));
     }
-  }, [category]);
+  }, [id]);
 
   const addComment = (comment) => {
     setAnimeComments((prevComments) => [...prevComments, comment]);
     localStorage.setItem(
-      `comments-${category}`,
+      `comments-${id}`,
       JSON.stringify([...animeComments, comment])
     );
   };
@@ -48,22 +48,22 @@ function AnimeDetail() {
     const updatedComments = [...animeComments];
     updatedComments[index] = editedComment;
     setAnimeComments(updatedComments);
-    localStorage.setItem(`comments-${category}`, JSON.stringify(updatedComments));
+    localStorage.setItem(`comments-${id}`, JSON.stringify(updatedComments));
   };
 
   const deleteComment = (index) => {
     const updatedComments = animeComments.filter((_, i) => i !== index);
     setAnimeComments(updatedComments);
-    localStorage.setItem(`comments-${category}`, JSON.stringify(updatedComments));
+    localStorage.setItem(`comments-${id}`, JSON.stringify(updatedComments));
   };
 
   useEffect(() => {
-    if (category) {
-      fetchAnime(category);
-      fetchCharacters(category);
+    if (id) {
+      fetchAnime(id);
+      fetchCharacters(id);
       fetchComments();
     }
-  }, [category, fetchComments]);
+  }, [id, fetchComments]);
 
   return (
     <div className="p-4 bg-gradient-to-r from-blue-900 to-purple-900 min-h-screen flex flex-col lg:flex-row">

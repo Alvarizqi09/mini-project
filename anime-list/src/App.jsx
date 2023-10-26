@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/watchlist" element={<Watchlist />} />
-        <Route path="/anime/:category" element={<AnimeDetail />} />
+        <Route path="/anime/:id" element={<AnimeDetail />} />
       </Routes>
     </BrowserRouter>
   );
