@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Tooltip } from "@mui/material";
 import Logout from "../Login/Logout";
@@ -16,7 +16,7 @@ const Profile = () => {
     gender: '',
     city: '',
   });
-
+  const navigate = useNavigate();
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -73,13 +73,13 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen p-6 Profile">
-      <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 ">
-        <NavLink to="/listanime">
+      <div className="flex font-medium leading-6 mt-2 mb-2 ml-2 gap-4 items-center">
+        <button onClick={() => navigate("/listanime")} className="flex items-center">
           <Tooltip title="Back">
             <ArrowBackIosIcon className="back-button text-white" />
           </Tooltip>
-        </NavLink>
-        <h2 className="text-2xl font-semibold mb-4 text-white">Your Profile</h2>
+        </button>
+        <h2 className="text-2xl font-semibold text-white">Your Profile</h2>
       </div>
       <div className="max-w-md bg-white rounded-lg p-4 shadow-lg mx-auto text-center">
         <div className="mb-4">

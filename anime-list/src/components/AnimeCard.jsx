@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function AnimeCard({ anime, addToWatchlist, removeFromWatchlist, watchlist }) {
   const isOnWatchlist = watchlist.some((item) => item.mal_id === anime.mal_id);
+  const navigate = useNavigate();
+
+  const handleMoreInfoClick = () => {
+    navigate(`/anime/${anime.mal_id}`);
+  };
 
   return (
     <article className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 flex flex-col">
@@ -15,20 +20,20 @@ function AnimeCard({ anime, addToWatchlist, removeFromWatchlist, watchlist }) {
         <h3 className="text-xl font-semibold text-gray-800">{anime.title}</h3>
       </div>
       <div className="px-6 py-4 flex space-x-5 items-center">
-        <Link to={`/anime/${anime.mal_id}`} className="text-gray-800 w-1/2 hover:text-black text-center">
+        <div onClick={handleMoreInfoClick} className="text-gray-800 w-1/2 hover:text-black text-center cursor-pointer">
           More Info
-        </Link>
+        </div>
         {isOnWatchlist ? (
           <button
             onClick={() => removeFromWatchlist(anime)}
-            className="bg-red-500 hover:bg-red-600 w-1/2 text-white font-bold px-2 py-2 rounded-full"
+            className="bg-red-500 hover:bg-red-600 w-1/2 text-white font-bold px-2 py-2 rounded-full cursor-pointer"
           >
             Remove
           </button>
         ) : (
           <button
             onClick={() => addToWatchlist(anime)}
-            className="bg-blue-500 hover:bg-blue-600 w-1/2 text-white font-bold px-2 py-2 rounded-full "
+            className="bg-blue-500 hover:bg-blue-600 w-1/2 text-white font-bold px-2 py-2 rounded-full cursor-pointer"
           >
             Add list
           </button>

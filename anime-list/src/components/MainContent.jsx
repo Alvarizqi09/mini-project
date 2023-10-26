@@ -117,7 +117,7 @@ function MainContent(props) {
                 </Menu>
                 <input
                   type="search"
-                  placeholder="Search for an anime"
+                  placeholder="Ayo bang cari anime"
                   required
                   value={props.search}
                   onChange={(e) => props.setSearch(e.target.value)}

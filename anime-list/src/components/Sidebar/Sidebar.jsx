@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Sidebar({ topAnime }) {
+  const navigate = useNavigate();
   return (
     <div>
       <aside className="w-full sm:w-64 m-5">
@@ -14,10 +15,12 @@ function Sidebar({ topAnime }) {
                   <span className="text-2xl sm:text-3xl text-gray-600">
                     {index + 1}
                   </span>
-                  <Link to={`/anime/${anime.mal_id}`} className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
-                    <img src={anime.images.jpg.small_image_url} alt="top" className="w-12 h-12 sm:w-15 sm:h-15 m-1 sm:m-2 rounded-md" />
-                    <span className="text-sm sm:text-base text-gray-800">{anime.title}</span>
-                  </Link>
+                  <div onClick={() => navigate(`/anime/${anime.mal_id}`)} style={{ cursor: 'pointer' }}>
+                    <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+                      <img src={anime.images.jpg.small_image_url} alt="top" className="w-12 h-12 sm:w-15 sm:h-15 m-1 sm:m-2 rounded-md" />
+                      <span className="text-sm sm:text-base text-gray-800">{anime.title}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </div>
