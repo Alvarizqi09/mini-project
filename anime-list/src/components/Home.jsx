@@ -86,7 +86,7 @@ function Home() {
   return (
     <div className="App">
       <Header />
-      <div className="flex w-full flex-col sm:flex-row sm:mr-5 bg-gray-300">
+      <div className="flex w-full flex-col sm:flex-row bg-gray-300 overflow-x-hidden">
         <Sidebar topAnime={topAnime} popularAnime={popularAnime} />
         <MainContent
           handleSearch={handleSearch}
