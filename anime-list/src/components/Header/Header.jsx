@@ -81,7 +81,7 @@ function Header() {
   return (
     <Navbar className="sticky top-0 bg-gray-950 z-10 h-max max-w-full rounded-none py-3 px-4 lg:px-8 lg:py-4 border-0">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <div className="flex w-24 h-8 ml-10 items-center justify-start">
+        <div className="flex w-24 h-8 items-center justify-start">
           <img src={about} alt="eventify" />
         </div>
         <div className="flex items-center justify-center ml-12 gap-4">
