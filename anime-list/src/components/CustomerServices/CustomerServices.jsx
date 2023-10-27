@@ -53,7 +53,7 @@ const CustomerServices = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <div className="flex-1 p-4 bg-gray-300 overflow-y-scroll">
+      <div className="flex-1 p-4 bg-gray-300">
         {messages.map((message, index) => (
           <div
             key={index}
