@@ -51,53 +51,53 @@ const CustomerServices = () => {
   };
 
   return (
-  <div className="flex flex-col h-screen">
-    <Header />
-    <div className="flex-1 p-4 bg-gray-300 overflow-y-scroll">
-      {messages.map((message, index) => (
-        <div
-          key={index}
-          className={`mb-2 ${
-            message.isUser
-              ? 'text-right text-white'
-              : 'text-left text-gray-600'
-          }`}
-        >
-          <div className={`rounded-lg p-2 inline-block shadow max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${message.isUser ? 'float-right bg-gray-700' : 'bg-white mt-6'}`}>
-            {message.text}
+    <div className="flex flex-col h-screen">
+      <Header />
+      <div className="flex-1 p-4 bg-gray-300 overflow-y-scroll">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`mb-2 ${
+              message.isUser
+                ? 'text-right text-white'
+                : 'text-left text-gray-600'
+            }`}
+          >
+            <div className={`rounded-lg p-2 inline-block shadow max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${message.isUser ? 'float-right bg-gray-700' : 'bg-white mt-6'}`}>
+              {message.text}
+            </div>
           </div>
-        </div>
-      ))}
-      {showLoading && (
-        <div className="text-center text-gray-600">
-          Loading...
-        </div>
-      )}
-    </div>
-    <div className="p-4 bg-gray-950 flex justify-between items-center">
-      <div className="w-12 h-12 items-center justify-center my-auto">
-        <img src={about} alt="eventify"/>
+        ))}
+        {showLoading && (
+          <div className="text-center text-gray-600">
+            Loading...
+          </div>
+        )}
       </div>
-      <div className="flex items-center justify-center space-x-2">
-        <input
-          type="text"
-          value={inputMessage}
-          onChange={handleInputMessageChange}
-          className="flex-1 border border-black rounded-full p-2"
-          placeholder="Sok nanya..."
-        />
-        <button
-          onClick={handleSendMessage}
-          disabled={loading}
-          className={`bg-blue-500 text-white rounded-full px-2 py-2 ${
-            loading ? 'cursor-not-allowed' : 'hover:bg-blue-600'
-          }`}
-        >
-          <SendIcon/>
-        </button>
+      <div className="p-4 bg-gray-950 flex flex-row justify-between items-center">
+        <div className="w-12 h-12 my-2">
+          <img src={about} alt="eventify" />
+        </div>
+        <div className="flex items-center justify-center space-x-2 my-2">
+          <input
+            type="text"
+            value={inputMessage}
+            onChange={handleInputMessageChange}
+            className="flex-1 border border-black rounded-full p-2"
+            placeholder="Sok nanya..."
+          />
+          <button
+            onClick={handleSendMessage}
+            disabled={loading}
+            className={`bg-blue-500 text-white rounded-full px-2 py-2 ${
+              loading ? 'cursor-not-allowed' : 'hover:bg-blue-600'
+            }`}
+          >
+            <SendIcon />
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 }
 export default CustomerServices;
