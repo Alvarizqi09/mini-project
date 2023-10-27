@@ -10,14 +10,14 @@ function AnimeCard({ anime, addToWatchlist, removeFromWatchlist, watchlist }) {
   };
 
   return (
-    <article className="bg-white shadow-lg rounded-lg overflow-hidden mb-8 flex flex-col">
+    <article className="bg-white shadow-lg rounded-lg overflow-hidden mb-4 flex flex-col">
       <img
         src={anime.images.jpg.large_image_url}
         alt="Anime"
         className="w-full h-48 object-cover"
       />
       <div className="px-6 py-4 flex-grow">
-        <h3 className="text-xl font-semibold text-gray-800">{anime.title}</h3>
+        <h3 className="text-lg font-semibold text-gray-800">{anime.title}</h3>
       </div>
       <div className="px-6 py-4 flex space-x-5 items-center">
         <div onClick={handleMoreInfoClick} className="text-gray-800 w-1/2 hover:text-black text-center cursor-pointer">
