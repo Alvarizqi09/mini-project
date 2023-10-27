@@ -63,7 +63,7 @@ const CustomerServices = () => {
                 : 'text-left text-gray-600'
             }`}
           >
-            <div className={`rounded-lg p-2 inline-block shadow max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${message.isUser ? 'float-right bg-gray-700' : 'bg-white mt-6'}`}>
+            <div className={`rounded-lg p-2 inline-block shadow-md max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${message.isUser ? 'float-right bg-gray-700' : 'bg-white mt-6'}`}>
               {message.text}
             </div>
           </div>
@@ -76,7 +76,7 @@ const CustomerServices = () => {
       </div>
       <div className="p-4 bg-gray-950 flex flex-row justify-between items-center">
         <div className="w-12 h-12 my-2">
-          <img src={about} alt="eventify" />
+          <img src={about} alt="eventify" className="max-w-full h-auto" />
         </div>
         <div className="flex items-center justify-center space-x-2 my-2">
           <input
