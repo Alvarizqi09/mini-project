@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import Header from "../Header/Header";
-import logo from '../../assets/logo.png';
+import SendIcon from '@mui/icons-material/Send';
+import about from '../../assets/about.png';
 
 const CustomerServices = () => {
   const openaiSecretKey = import.meta.env.VITE_OPENAI_KEY;
@@ -73,26 +74,26 @@ const CustomerServices = () => {
         </div>
       )}
     </div>
-    <div className="p-4 bg-white flex justify-between items-center">
+    <div className="p-4 bg-gray-950 flex justify-between items-center">
       <div className="w-12 h-12 items-center justify-center my-auto">
-        <img src={logo} alt="eventify" />
+        <img src={about} alt="eventify"/>
       </div>
       <div className="flex items-center justify-center space-x-2">
         <input
           type="text"
           value={inputMessage}
           onChange={handleInputMessageChange}
-          className="flex-1 border border-black rounded p-2"
+          className="flex-1 border border-black rounded-full p-2"
           placeholder="Sok nanya..."
         />
         <button
           onClick={handleSendMessage}
           disabled={loading}
-          className={`bg-blue-500 text-white rounded px-4 py-2 ${
+          className={`bg-blue-500 text-white rounded-full px-2 py-2 ${
             loading ? 'cursor-not-allowed' : 'hover:bg-blue-600'
           }`}
         >
-          Kirim
+          <SendIcon/>
         </button>
       </div>
     </div>
