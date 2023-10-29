@@ -51,9 +51,9 @@ const CustomerServices = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-y-hidden">
+    <div className="flex flex-col h-screen">
       <Header />
-      <div className="flex h-full p-4 bg-gray-300 overflow-y-hidden">
+      <div className="flex-1 p-4 bg-gray-300">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -74,7 +74,7 @@ const CustomerServices = () => {
           </div>
         )}
       </div>
-      <div className="p-4 bg-gray-950 flex flex-row justify-between overflow-y-hidden items-center">
+      <div className="p-4 bg-gray-950 flex flex-row justify-between items-center">
         <div className="w-12 h-12 my-2">
           <img src={about} alt="eventify" className="max-w-full h-auto" />
         </div>
@@ -100,4 +100,5 @@ const CustomerServices = () => {
     </div>
   );
 }
+
 export default CustomerServices;
