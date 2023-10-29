@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import Header from "../Header/Header";
 import SendIcon from '@mui/icons-material/Send';
-import about from '../../assets/about.png';
+import Swal from 'sweetalert2';
 
 const CustomerServices = () => {
   const openaiSecretKey = import.meta.env.VITE_OPENAI_KEY;
@@ -17,9 +17,25 @@ const CustomerServices = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
   const handleInputMessageChange = (e) => {
     setInputMessage(e.target.value);
   };
+
+  useEffect(() => {
+    if (!showPopup) {
+      Swal.fire({
+        title: 'Ketentuan Penggunaan Customer Services',
+        text: 'Guanakan bahasa yang sopan dan jangan bertanya diluar topik/tema dari website ini!',
+        icon: 'info',
+        confirmButtonText: 'Saya Mengerti',
+        allowOutsideClick: false,
+      }).then(() => {
+        setShowPopup(true);
+      });
+    }
+  }, [showPopup]);
 
   const handleSendMessage = async () => {
     if (inputMessage) {
@@ -74,11 +90,8 @@ const CustomerServices = () => {
           </div>
         )}
       </div>
-      <div className="p-4 bg-gray-950 flex flex-row justify-between items-center">
-        <div className="w-12 h-12 my-2">
-          <img src={about} alt="eventify" className="max-w-full h-auto" />
-        </div>
-        <div className="flex items-center justify-center space-x-2 my-2">
+      <div className="p-4 bg-gray-950">
+        <div className="w-full flex space-x-2 my-2">
           <input
             type="text"
             value={inputMessage}
