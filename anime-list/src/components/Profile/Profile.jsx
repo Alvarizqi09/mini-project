@@ -8,6 +8,7 @@ import "./Profile.css";
 import OutMobile from '../Login/OutMobile';
 
 const Profile = () => {
+  
   const [userData, setUserData] = useState({
     avatar: defaultAvatar,
     fullName: '',
@@ -17,6 +18,7 @@ const Profile = () => {
     city: '',
   });
   const navigate = useNavigate();
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {

@@ -11,7 +11,8 @@ function AnimeDetail() {
   const [animeComments, setAnimeComments] = useState([]);
 
   const fetchAnime = async (id) => {
-    const temp = await fetch(`https://api.jikan.moe/v4/anime/${id}`).then(
+    const temp = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
+    .then(
       (res) => res.json()
     );
 
