@@ -8,7 +8,7 @@ function Sidebar({ topAnime }) {
       <aside className="w-full sm:w-64 m-5">
         <nav>
           <h3 className="text-xl sm:text-2xl text-center font-bold text-gray-800 sm:mt-14 mb-10 sm:mb-8">Top Anime</h3>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-row sm:flex-col gap-x-5 overflow-x-auto mr-2">
             {topAnime &&
               topAnime.map((anime, index) => (
                 <div className="flex flex-row items-center p-2 sm:p-4 bg-white shadow-md rounded-lg mb-2 sm:mb-4" key={anime.mal_id}>
