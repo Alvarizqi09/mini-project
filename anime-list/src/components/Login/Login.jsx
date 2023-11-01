@@ -11,12 +11,12 @@ const Login = () => {
 
   const [login, setLogin] = useState(false);
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useGoogleOneTapLogin({
     onSuccess: credentialResponse => {
       console.log(credentialResponse);
-      history("/home")
+      navigate("/home")
     },
     onError: () => {
       console.log('Login Failed');
@@ -31,7 +31,7 @@ const Login = () => {
       createUserWithEmailAndPassword(database, email, password)
         .then((data) => {
           console.log(data, "authData");
-          history("/home");
+          navigate("/home");
         })
         .catch((err) => {
           Swal.fire({
@@ -45,7 +45,7 @@ const Login = () => {
       signInWithEmailAndPassword(database, email, password)
         .then((data) => {
           console.log(data, "authData");
-          history("/home");
+          navigate("/home");
         })
         .catch((err) => {
           Swal.fire({
@@ -57,7 +57,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 login-card">
+    <div className="min-h-screen flex items-center justify-center login-card">
     <div className="max-w-md w-full p-6 space-y-6 rounded-xl shadow-xl bg-white">
       <div className="flex mx-auto gap-x-5">
         <div
@@ -90,7 +90,7 @@ const Login = () => {
           className="block w-full p-2 border rounded-md"
           placeholder="Password"
         />
-        <button className="w-full bg-blue-500 text-white p-2 rounded-md" type="submit">
+        <button className="w-full bg-gradient-to-r from-blue-900 to-purple-900 text-white p-2 rounded-md" type="submit">
           {login ? "SignIn" : "SignUp"}
         </button>
       </form>

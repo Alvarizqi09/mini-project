@@ -43,7 +43,7 @@ const LandingPage = () => {
           </div>
         </section>
       </header>
-      <section className="about flex flex-col sm:flex-row p-8 items-center bg-gray-200 justify-center">
+      <section className="flex flex-col sm:flex-row p-8 items-center justify-center">
         <div className="w-full sm:w-1/2 pr-4 items-center justify-center mb-4 sm:mb-0">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
           <p className="text-gray-700 text-justify">

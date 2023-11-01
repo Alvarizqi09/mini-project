@@ -89,7 +89,7 @@ function Header() {
         </div>
         <div className="flex items-center justify-end gap-4">
           <Button
-            variant="gradient"
+            color="light-blue"
             size="sm"
             onClick={() => navigate("/profile")}
             className="hidden lg:inline-block text-white"

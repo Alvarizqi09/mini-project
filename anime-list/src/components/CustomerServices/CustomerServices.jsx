@@ -49,7 +49,7 @@ const CustomerServices = () => {
       try {
         const response = await openai.createCompletion({
           model: 'text-davinci-003',
-          prompt: 'Selamat datang di Vilume, tempat di mana dunia animasi hidup dan kisah-kisah menakjubkan menghadirkan hiburan tak terbatas. Vilume adalah portal eksklusif bagi para pencinta anime yang mencari petualangan, keajaiban, dan kegembiraan dalam setiap episode.Di Vilume, kami mengundang Anda untuk menjelajahi koleksi anime yang luar biasa, dari klasik yang tak terlupakan hingga judul terbaru yang sedang booming. Temukan karakter-karakter yang akan Anda cintai, kisah-kisah yang akan menginspirasi, dan komunitas yang akan Anda banggakan.Mari bergabung dengan ribuan penggemar anime lainnya dan temukan keindahan dalam setiap frame. Vilume adalah rumah bagi semua yang berani bermimpi. Mari mulai petualangan anime Anda bersama kami!' + inputMessage,
+          prompt: 'kamu adalah sebuah fitur untuk customer services,kamu di perbolehkan menjawab pertanyaan-pertanyaan umum seputar anime dan website vilume dimana website vilume sendiri adalah  rumah bagi para pencinta anime! Kami adalah pusat anime yang menghadirkan hiburan berkualitas tinggi bagi penggemar anime dari segala usia. Dengan koleksi anime yang beragam dan ulasan terbaru, kami siap memenuhi kecintaan Anda terhadap dunia anime.Jikalau user memberikan pertanyaan diluar konteks anime atau website ini tolong jawab tidak bisa karena ini adalah layanan customer services untuk vilume' + inputMessage,
           temperature: 0.5,
           max_tokens: 250,
         });
@@ -69,7 +69,7 @@ const CustomerServices = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <div className="flex-1 p-4 bg-gray-300">
+      <div className="flex-1 p-4">
         {messages.map((message, index) => (
           <div
             key={index}

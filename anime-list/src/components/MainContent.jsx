@@ -10,7 +10,8 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToWatchlist, removeFromWatchlist } from '../components/WatchList/reducers/watchlistSlice';
 import LoadingCard from "./Loading/Loading";
-import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MainContent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -36,19 +37,19 @@ function MainContent(props) {
 
   const handleAddToWatchlist = (anime) => {
     dispatch(addToWatchlist(anime));
-    Swal.fire({
-      icon: 'success',
-      title: 'Added to Watchlist',
-      text: `${anime.title} has been added to your watchlist.`,
+    props.addToWatchlist(anime);
+    toast.success(`${anime.title} has been added to your watchlist.`, {
+      position: 'top-right',
+      autoClose: 3000,
     });
   };
   
   const handleRemoveFromWatchlist = (anime) => {
     dispatch(removeFromWatchlist(anime));
-    Swal.fire({
-      icon: 'success',
-      title: 'Removed from Watchlist',
-      text: `${anime.title} has been removed from your watchlist.`,
+    props.removeFromWatchlist(anime);
+    toast.success(`${anime.title} has been removed from your watchlist.`, {
+      position: 'top-right',
+      autoClose: 3000,
     });
   };
 
@@ -76,15 +77,16 @@ function MainContent(props) {
         ) : (
           <>
           <div className="sm:flex items-center justify-between flex-wrap">
+              <ToastContainer />
               <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mt-6 sm:mt-10 mb-5 sm:mb-10 text-center w-full sm:w-auto">
                 {title}
               </h3>
               <form
-                className="search-box flex items-center space-x-4 bg-white rounded-lg px-4 py-2 shadow-lg"
+                className="search-box flex items-center space-x-4 px-4 py-2 "
                 onSubmit={props.handleSearch}
               >
                 <Button
-                  className="bg-gray-800 text-white p-2 rounded-full focus:outline-none"
+                  className="bg-gradient-to-r from-blue-900 to-purple-900 text-white p-2 rounded-full focus:outline-none"
                   id="fade-button"
                   aria-controls={open ? "fade-menu" : undefined}
                   aria-haspopup="true"
@@ -125,7 +127,7 @@ function MainContent(props) {
                 />
               </form>
             </div>
-            <div className="anime-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
               {props.animeList.length === 0 ? (
                 <LoadingCard />
               ) : (
@@ -144,6 +146,7 @@ function MainContent(props) {
         )}
       </div>
     </main>
+    
   );
 }
 
